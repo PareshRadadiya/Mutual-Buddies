@@ -16,7 +16,8 @@ class BMF {
 	 */
 	public static function init() {
 
-		add_action( 'bp_setup_nav', array( __CLASS__, 'my_test_setup_nav' ) );
+		add_action( 'bp_friends_setup_nav', array( __CLASS__, 'my_test_setup_nav' )  );
+
 	}
 
 
@@ -28,13 +29,12 @@ class BMF {
 	public static function my_test_setup_nav() {
 		global $bp;
 
+		if( bp_displayed_user_id() === 0 )
+			return;
+
 		// Determine user to use
 		if ( bp_displayed_user_domain() ) {
 			$user_domain = bp_displayed_user_domain();
-		} elseif ( bp_loggedin_user_domain() ) {
-			$user_domain = bp_loggedin_user_domain();
-		} else {
-			return;
 		}
 
 		$slug         = bp_get_friends_slug();
@@ -44,10 +44,9 @@ class BMF {
 		bp_core_new_subnav_item( array(
 			'name' => __( 'Mutual Friends', 'bmf' ),
 			'slug' => 'mutual-friends',
-			'parent_slug' => $slug,
 			'parent_url' => $friends_link,
+			'parent_slug' => $slug,
 			'screen_function' => array( __CLASS__, 'bmf_screen_one' ),
-			'show_for_displayed_user' => self::access_test()
 		) );
 
 	}
@@ -93,10 +92,30 @@ class BMF {
 	 * @Since v2.1
 	 * @returns void
 	 */
-	public static  function screen_one_content() { ?>
-
-	<?php
+	public static  function screen_one_content() {
+		bp_get_template_part( 'members/members-loop' );
 	}
 }
 
 BMF::init();
+
+function my_bp_activities_per_page_5_on_user_activity( $retval ) {
+	// only fetch the last five entries if we're on a user's activity page
+
+
+	$retval['exclude'] = bmf_get_unmutual_friends();
+
+	return $retval;
+}
+add_filter( 'bp_after_core_get_users_parse_args', 'my_bp_activities_per_page_5_on_user_activity' );
+add_filter('bp_is_my_profile', '__return_true');
+
+function bmf_get_unmutual_friends() {
+
+	$current_user_friends = friends_get_friend_user_ids( get_current_user_id() );
+	$displayed_user_friends = friends_get_friend_user_ids( bp_displayed_user_id() );
+
+	$result = array_merge(array_diff($current_user_friends, $displayed_user_friends), array_diff($displayed_user_friends, $current_user_friends));
+
+	return $result;
+}
