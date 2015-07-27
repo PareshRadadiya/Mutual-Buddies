@@ -13,6 +13,7 @@
  * @return bool True if it's the example component, false otherwise
  */
 function bp_is_mutual_friends_component() {
-    $is_mutual_friends_component = bp_is_current_component( BP_MUTUAL_FRIENDS_SLUG );
-    return apply_filters( 'bp_is_mutual_friends_component', $is_mutual_friends_component );
+	$is_mutual_friends_component = bp_is_current_component( BP_MUTUAL_FRIENDS_SLUG );
+
+	return apply_filters( 'bp_is_mutual_friends_component', $is_mutual_friends_component );
 }

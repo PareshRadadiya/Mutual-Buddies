@@ -39,7 +39,7 @@ class BP_Mutual_Friends_Component extends BP_Component {
 		 * returns true when appropriate. We have to do this manually, because non-core
 		 * components are not saved as active components in the database.
 		 */
-		$bp->active_components[$this->id] = '1';
+		$bp->active_components[ $this->id ] = '1';
 
 	}
 
@@ -97,8 +97,9 @@ class BP_Mutual_Friends_Component extends BP_Component {
 	 */
 	public function setup_nav( $main_nav = array(), $sub_nav = array() ) {
 
-		if( bp_displayed_user_id() === 0 ||  bp_displayed_user_id() === get_current_user_id() )
+		if ( bp_displayed_user_id() === 0 || bp_displayed_user_id() === get_current_user_id() ) {
 			return;
+		}
 
 		// Determine user to use
 		if ( bp_displayed_user_domain() ) {
@@ -138,4 +139,5 @@ function bp_mutual_friends_load_core_component() {
 	global $bp;
 	$bp->mutual_friends = new BP_Mutual_Friends_Component;
 }
+
 add_action( 'bp_loaded', 'bp_mutual_friends_load_core_component' );
