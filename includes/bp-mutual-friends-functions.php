@@ -44,16 +44,29 @@ function bp_uncommon_friends() {
 
 /**
  * Get the mutual friend count of a current user.
+ * @params int
  * @return mixed|void
  */
-function bp_mutual_friend_total_count() {
+function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
 
 	$current_user_friends   = friends_get_friend_user_ids( get_current_user_id() );
-	$displayed_user_friends = friends_get_friend_user_ids( bp_displayed_user_id() );
+
+	if( empty( $friend_user_id ) )
+		$friend_user_id = bp_displayed_user_id();
+
+	$displayed_user_friends = friends_get_friend_user_ids( $friend_user_id );
 
 	$result = count( array_intersect( $current_user_friends, $displayed_user_friends ) );
 
 	return apply_filters( 'bp_mutual_friend_total_count', $result );
 }
 
+function bp_directory_mutual_friends_count() {
+	global $members_template;
+	$mutual_friends_count = bp_mutual_friend_total_count( $members_template->member->ID );
 
+	?>
+	<div class="item-meta"><span class="mutual-friends"><?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?></span></div>
+<?php
+}
+add_action( 'bp_directory_members_item', 'bp_directory_mutual_friends_count' );
