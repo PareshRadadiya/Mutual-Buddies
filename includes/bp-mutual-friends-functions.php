@@ -21,7 +21,12 @@ function bp_uncommon_friends() {
     $current_user_friends = friends_get_friend_user_ids( get_current_user_id() );
     $displayed_user_friends = friends_get_friend_user_ids( bp_displayed_user_id() );
 
+    $current_user_friends_requested = friends_get_friend_user_ids( get_current_user_id(), true );
+    $displayed_user_friends_requested = friends_get_friend_user_ids( bp_displayed_user_id(), true );
+
     $result = array_merge(array_diff($current_user_friends, $displayed_user_friends), array_diff($displayed_user_friends, $current_user_friends));
+
+    $result = array_merge( $current_user_friends_requested, $displayed_user_friends_requested, $result );
 
     return $result;
 }

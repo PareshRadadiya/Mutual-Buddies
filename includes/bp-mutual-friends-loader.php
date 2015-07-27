@@ -74,8 +74,7 @@ class BP_Mutual_Friends_Component extends BP_Component {
 	 * @param array $args See {@link BP_Component::setup_globals()}.
 	 */
 	public function setup_globals( $args = array() ) {
-		$bp = buddypress();
-		
+
 		// Define a slug, if necessary
 		if ( ! defined( 'BP_MUTUAL_FRIENDS_SLUG' ) ) {
 			define( 'BP_MUTUAL_FRIENDS_SLUG', $this->id );
@@ -110,24 +109,22 @@ class BP_Mutual_Friends_Component extends BP_Component {
 
 		// Add 'Friends' to the main navigation
 		$main_nav = array(
-			'name'                => sprintf( __( 'Mutulal Friends', 'buddypress' ) ),
+			'name'                => sprintf( __( 'Mutual Friends', 'buddypress' ) ),
 			'slug'                => BP_MUTUAL_FRIENDS_SLUG,
 			'position'            => 65,
-			'screen_function'     => 'bp_mutual_friends_directory_setup',
-			'default_subnav_slug' => 'mutual-friends',
-			'item_css_id'         => $this->id
+			'screen_function'     => 'bp_mutual_friends_screen',
+			'default_subnav_slug' => 'my-mutual-friends'
 		);
 
 		// Add the subnav items to the mutual-friends nav item
 		$sub_nav[] = array(
-			'name'            => _x( 'Friendships', 'Friends screen sub nav', 'buddypress' ),
+			'name'            => _x( 'Mutual Friends', 'Friends screen sub nav', 'buddypress' ),
 			'slug'            => 'my-mutual-friends',
 			'parent_url'      => $mutual_friends_link,
 			'parent_slug'     => BP_MUTUAL_FRIENDS_SLUG,
-			'screen_function' => 'bp_mutual_friends_screen',
+			'screen_function' => 'bp_my_mutual_friends_screen',
 			'position'        => 10
 		);
-
 
 		parent::setup_nav( $main_nav, $sub_nav );
 	}
