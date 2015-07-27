@@ -8,139 +8,37 @@
  * Domain Path: languages
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-if ( ! class_exists( 'Buddypress_Mutual_Friends' ) ) :
-
-/**
- * Main Buddypress_Mutual_Friends Class
+// Define a constant that can be checked to see if the component is installed or not.
+define( 'BP_MUTUAL_FRIENDS_IS_INSTALLED', 1 );
+// Define a constant that will hold the current version number of the component
+// This can be useful if you need to run update scripts or do compatibility checks in the future
+define( 'BP_MUTUAL_FRIENDS_VERSION', '1.0' );
+// Define a constant that we can use to construct file paths throughout the component
+define( 'BP_MUTUAL_FRIENDS_PLUGIN_DIR', dirname( __FILE__ ) );
+/* Define a constant that will hold the database version number that can be used for upgrading the DB
  *
- * @since 1.0
+ * NOTE: When table defintions change and you need to upgrade,
+ * make sure that you increment this constant so that it runs the install function again.
+ *
+ * Also, if you have errors when testing the component for the first time, make sure that you check to
+ * see if the table(s) got created. If not, you'll most likely need to increment this constant as
+ * BP_MUTUAL_FRIENDS_DB_VERSION was written to the wp_usermeta table and the install function will not be
+ * triggered again unless you increment the version to a number higher than stored in the meta data.
  */
-final class Buddypress_Mutual_Friends {
-
-    /** Singleton *************************************************************/
-
-    /**
-     * @var Buddypress_Mutual_Friends The one true Buddypress_Mutual_Friends
-     * @since 1.0
-     */
-    private static $instance;
-
-    /**
-     * Main Easy_Digital_Downloads Instance
-     *
-     * Insures that only one instance of Budddypress_Grid_Wall exists in memory at any one
-     * time. Also prevents needing to define globals all over the place.
-     *
-     * @since 1.0
-     * @static
-     * @staticvar array $instance
-     * @see BMF()
-     * @return The one true Budddypress_Grid_Wall
-     */
-    public static function instance() {
-        if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Buddypress_Mutual_Friends ) ) {
-            self::$instance = new Buddypress_Mutual_Friends;
-            self::$instance->setup_constants();
-
-            self::$instance->includes();
-        }
-        return self::$instance;
-    }
-
-
-    /**
-     * Setup plugin constants
-     *
-     * @access private
-     * @since 1.0
-     * @return void
-     */
-    private function setup_constants() {
-
-        // Plugin version
-        if ( ! defined( 'BMF_VERSION' ) ) {
-            define( 'BMF_VERSION', '1.0' );
-        }
-
-        // Plugin Folder Path
-        if ( ! defined( 'BMF_PLUGIN_DIR' ) ) {
-            define( 'BMF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-        }
-
-        // Plugin Folder URL
-        if ( ! defined( 'BMF_PLUGIN_URL' ) ) {
-            define( 'BMF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-        }
-
-        // Plugin Root File
-        if ( ! defined( 'BMF_PLUGIN_FILE' ) ) {
-            define( 'BMF_PLUGIN_FILE', __FILE__ );
-        }
-    }
-
-    /**
-     * Include required files
-     *
-     * @access private
-     * @since 1.0
-     * @return void
-     */
-    private function includes() {
-
-        include_once( 'includes/class-bmf.php' );
-
-        if ( $this->is_request( 'frontend' ) ) {
-            $this->frontend_includes();
-        }
-
-    }
-
-    /**
-     * What type of request is this?
-     * string $type ajax, frontend or admin
-     * @return bool
-     */
-    private function is_request( $type ) {
-        switch ( $type ) {
-            case 'admin' :
-                return is_admin();
-            case 'ajax' :
-                return defined( 'DOING_AJAX' );
-            case 'cron' :
-                return defined( 'DOING_CRON' );
-            case 'frontend' :
-                return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
-        }
-    }
-
-    /**
-     * Include required frontend files.
-     */
-    public function frontend_includes() {
-       // include_once( 'includes/class-bmf-frontend-scripts.php' );
-    }
+define ( 'BP_MUTUAL_FRIENDS_DB_VERSION', '1' );
+/* Only load the component if BuddyPress is loaded and initialized. */
+function bp_mutual_friends_init() {
+    // Because our loader file uses BP_Component, it requires BP 1.5 or greater.
+    if ( version_compare( BP_VERSION, '1.3', '>' ) )
+        require( BP_MUTUAL_FRIENDS_PLUGIN_DIR . '/includes/bp-mutual-friends-loader.php' );
 }
-
-endif;
-
-/**
- * The main function responsible for returning the one true Buddypress_Mutual_Friends
- * Instance to functions everywhere.
- *
- * Use this function like you would a global variable, except without needing
- * to declare the global.
- *
- * Example: <?php $bmf = BMF(); ?>
- *
- * @since 1.0
- * @return object The one true Buddypress_Mutual_Friends Instance
- */
-function BMF() {
-    return Buddypress_Mutual_Friends::instance();
+add_action( 'bp_include', 'bp_mutual_friends_init' );
+/* Put setup procedures to be run when the plugin is activated in the following function */
+function bp_mutual_friends_activate() {
 }
-
-// Get EDD Running
-BMF();
+register_activation_hook( __FILE__, 'bp_mutual_friends_activate' );
+/* On deacativation, clean up anything your component has added. */
+function bp_mutual_friends_deactivate() {
+    /* You might want to delete any options or tables that your component created. */
+}
+register_deactivation_hook( __FILE__, 'bp_mutual_friends_deactivate' );

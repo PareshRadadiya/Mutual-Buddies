@@ -99,16 +99,16 @@ class BMF {
 
 BMF::init();
 
-function my_bp_activities_per_page_5_on_user_activity( $retval ) {
-	// only fetch the last five entries if we're on a user's activity page
 
+function my_profile( $my_profile ) {
 
-	$retval['exclude'] = bmf_get_unmutual_friends();
+	if( bp_is_current_component( 'friends' ) ) {
+		$my_profile = true;
+	}
 
-	return $retval;
+	return $my_profile;
 }
-add_filter( 'bp_after_core_get_users_parse_args', 'my_bp_activities_per_page_5_on_user_activity' );
-add_filter('bp_is_my_profile', '__return_true');
+add_filter('bp_is_my_profile', 'my_profile');
 
 function bmf_get_unmutual_friends() {
 
