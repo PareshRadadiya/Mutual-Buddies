@@ -109,8 +109,11 @@ class BP_Mutual_Friends_Component extends BP_Component {
 		$mutual_friends_link = trailingslashit( $user_domain . BP_MUTUAL_FRIENDS_SLUG );
 
 		// Add 'Friends' to the main navigation
+		// Add 'Friends' to the main navigation
+		$count    = bp_mutual_friend_total_count();
+		$class    = ( 0 === $count ) ? 'no-count' : 'count';
 		$main_nav = array(
-			'name'                => sprintf( __( 'Mutual Friends', 'buddypress' ) ),
+			'name'                => sprintf( __( 'Mutual Friends <span class="%s">%s</span>', 'buddypress' ), esc_attr( $class ), bp_core_number_format( $count ) ),
 			'slug'                => BP_MUTUAL_FRIENDS_SLUG,
 			'position'            => 65,
 			'screen_function'     => 'bp_mutual_friends_screen',

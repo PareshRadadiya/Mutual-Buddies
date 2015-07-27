@@ -57,5 +57,5 @@ function bp_my_mutual_friends_screen() {
 }
 
 function bp_mutual_friends_template_content() {
-	include_once( 'templates/mutual-friends/mutual-friends-loop.php' );
+	include_once( BP_MUTUAL_FRIENDS_PLUGIN_DIR.'/templates/mutual-friends/mutual-friends-loop.php' );
 }
