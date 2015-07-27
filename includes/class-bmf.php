@@ -32,6 +32,8 @@ class BMF {
 		if( bp_displayed_user_id() === 0 )
 			return;
 
+
+
 		// Determine user to use
 		if ( bp_displayed_user_domain() ) {
 			$user_domain = bp_displayed_user_domain();

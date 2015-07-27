@@ -53,9 +53,9 @@ add_action( 'bp_screens', 'bp_mutual_friends_screen'  );
 function bp_my_mutual_friends_screen() {
 
     add_action( 'bp_template_content',   'bp_mutual_friends_template_content' );
-    bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+    bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/friends' ) );
 }
 
 function bp_mutual_friends_template_content() {
-    include_once( 'templates/mutualfriends/mutualfriends-loop.php' );
+    include_once('templates/mutual-friends/mutual-friends-loop.php');
 }
