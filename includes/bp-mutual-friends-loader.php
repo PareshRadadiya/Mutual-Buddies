@@ -56,6 +56,8 @@ class BP_Mutual_Friends_Component extends BP_Component {
 			'includes/bp-mutual-friends-filters.php',
 			'includes/bp-mutual-friends-template.php',
 			'includes/bp-mutual-friends-functions.php',
+			'includes/bp-mutual-friends-cssjs.php',
+			'includes/bp-mutual-friends-ajax.php',
 		);
 
 		parent::includes( $includes );
