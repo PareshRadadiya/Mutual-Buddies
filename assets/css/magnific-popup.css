@@ -373,11 +373,3 @@ img.mfp-img {
   right: 0;
   padding-top: 0; }
 
-.white-popup {
-  position: relative;
-  background: #FFF;
-  padding: 20px;
-  width: auto;
-  max-width: 500px;
-  margin: 20px auto;
-}

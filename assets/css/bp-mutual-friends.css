@@ -1,0 +1,51 @@
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.white-popup ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.white-popup ul li {
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    display: block;
+    clear: both;
+}
+
+.white-popup ul li:last-child {
+    border-bottom: none;
+}
+
+.white-popup ul li div.item-avatar,
+.white-popup ul li div.item {
+    display: inline;
+    float: left;
+}
+
+.white-popup ul li div.item-avatar {
+    padding-top: 7px;
+}
+
+.white-popup ul li div.item {
+    padding-left: 10px;
+    padding-top: 0px;
+}
+
+.white-popup ul li div.action,
+.white-popup ul li div.action div {
+    display: inline;
+}
+
+.white-popup ul li div.action div a {
+    float: right;
+}

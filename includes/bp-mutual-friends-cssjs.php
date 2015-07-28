@@ -13,6 +13,7 @@
 function bp_mutual_friends_add_js() {
 
 	wp_enqueue_style( 'magnific-popup', BP_MUTUAL_FRIENDS_PLUGIN_URL.'assets/css/magnific-popup.css', array(), BP_MUTUAL_FRIENDS_VERSION );
+	wp_enqueue_style( 'mutual-friends', BP_MUTUAL_FRIENDS_PLUGIN_URL.'assets/css/bp-mutual-friends.css', array(), BP_MUTUAL_FRIENDS_VERSION );
 	wp_enqueue_script( 'jquery.magnific-popup', BP_MUTUAL_FRIENDS_PLUGIN_URL.'assets/js/jquery.magnific-popup.js', array('jquery'), BP_MUTUAL_FRIENDS_VERSION );
 	wp_enqueue_script( 'mutual-friends', BP_MUTUAL_FRIENDS_PLUGIN_URL.'assets/js/mutual-friends.js', array('jquery'), BP_MUTUAL_FRIENDS_VERSION );
 }

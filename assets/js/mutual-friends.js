@@ -7,18 +7,19 @@ var mutual_friends;
         init: function() {
             $('a.mutual-friends').magnificPopup({
                 items: {
-                    src: $('<div class="white-popup">Dynamically created popup</div>'),
+                    src: $('<div class="white-popup"></div>'),
                     type: 'inline'
                 },
                 callbacks: {
                     open: function() {
 
                     },
-                    close: function() {
-                        // Will fire when popup is closed
+                    beforeClose: function() {
+                        $('div.white-popup').html( "" );
                     }
                     // e.t.c.
-                }
+                },
+                closeBtnInside:true
             });
 
             $('a.mutual-friends').on( 'click', mutual_friends.fetch_mutual_friend );
@@ -34,7 +35,7 @@ var mutual_friends;
             }
 
             $.get( ajaxurl, send_data, function( response ) {
-                $('div.white-popup').html( response );
+                $('div.white-popup').append( response );
             });
         }
 
