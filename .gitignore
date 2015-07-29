@@ -1,1 +1,19 @@
-.idea/
+# OS Stuff
+
+# Node Stuff
+node_modules
+
+$ SCSS cache
+.sass-cache/
+
+# IDE Stuff
+
+## phpStorm
+.idea
+
+## SublimeText
+*.sublime-workspace
+*.sublime-project
+
+# Project Stuff
+deploy.sh

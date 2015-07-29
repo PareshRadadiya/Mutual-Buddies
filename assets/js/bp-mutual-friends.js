@@ -1,5 +1,4 @@
 var mutual_friends;
-
 (function( $ ) {
 
     mutual_friends = {
@@ -16,8 +15,6 @@ var mutual_friends;
             });
 
             $('a.mutual-friends').live( 'click', mutual_friends.fetch_mutual_friend );
-
-            $('div.bmf-white-popup').perfectScrollbar();
         },
 
         fetch_mutual_friend: function( e ) {
