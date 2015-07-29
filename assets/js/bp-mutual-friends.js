@@ -15,6 +15,7 @@ var mutual_friends;
             });
 
             $('a.mutual-friends').live( 'click', mutual_friends.fetch_mutual_friend );
+
         },
 
         fetch_mutual_friend: function( e ) {
@@ -35,10 +36,13 @@ var mutual_friends;
 
                 $('div.bmf-white-popup').find("div.bmf-spinner").remove();
                 $('div.bmf-white-popup').append( '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'+response );
+                $('div.bmf-white-popup').perfectScrollbar();
             });
         }
 
     };
+
+
 
     $( document).ready( function() { mutual_friends.init() });
 })(jQuery);

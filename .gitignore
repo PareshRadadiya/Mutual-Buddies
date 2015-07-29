@@ -3,8 +3,8 @@
 # Node Stuff
 node_modules
 
-$ SCSS cache
-.sass-cache/
+# SCSS cache
+.sass-cache
 
 # IDE Stuff
 
