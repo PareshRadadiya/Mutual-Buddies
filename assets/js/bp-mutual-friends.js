@@ -25,7 +25,10 @@ var mutual_friends;
             $('a.mutual-friends').on( 'click', mutual_friends.fetch_mutual_friend );
         },
 
-        fetch_mutual_friend: function() {
+        fetch_mutual_friend: function( e ) {
+
+            e.preventDefault();
+
             $element = $(this);
 
             var user_id = $element.data('user-id');
@@ -34,11 +37,12 @@ var mutual_friends;
                 user_id: user_id
             };
 
-
-
             $.get( ajaxurl, send_data, function( response ) {
+
                 $('div.bmf-white-popup').find("div.bmf-spinner").remove();
                 $('div.bmf-white-popup').append( response );
+
+                mutual_friends.init()
             });
         }
 

@@ -89,10 +89,9 @@ function bp_directory_mutual_friends_count() {
 	}
 
 	$mutual_friends_count = bp_mutual_friend_total_count( $members_template->member->ID );
-
 	?>
 	<div class="item-meta">
-		<a href="" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
+		<a href="#" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
 			<?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?>
 		</a>
 	</div>
