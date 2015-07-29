@@ -1,11 +1,11 @@
 <?php
 /**
- * BuddyPress Friends Streams Loader
+ * BuddyPress Mutual Friends Streams Loader
  *
- * The mutual-friends component is for users to create relationships with each other.
+ * The mutual-friends component is for users to show common friends.
  *
  * @package BuddyPress
- * @subpackage Friends
+ * @subpackage MutualFriends
  */
 
 // Exit if accessed directly
