@@ -83,6 +83,11 @@ function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
  */
 function bp_directory_mutual_friends_count() {
 	global $members_template;
+
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
 	$mutual_friends_count = bp_mutual_friend_total_count( $members_template->member->ID );
 
 	?>

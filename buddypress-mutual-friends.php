@@ -20,17 +20,21 @@ define( 'BP_MUTUAL_FRIENDS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /* Only load the component if BuddyPress is loaded and initialized. */
 function bp_mutual_friends_init() {
-    // Because our loader file uses BP_Component, it requires BP 1.5 or greater.
-    if ( version_compare( BP_VERSION, '1.3', '>' ) )
-        require( BP_MUTUAL_FRIENDS_PLUGIN_DIR . '/includes/bp-mutual-friends-loader.php' );
+	// Because our loader file uses BP_Component, it requires BP 1.5 or greater.
+	if ( version_compare( BP_VERSION, '1.3', '>' ) && bp_is_active( 'friends' ) ) {
+		require( BP_MUTUAL_FRIENDS_PLUGIN_DIR . '/includes/bp-mutual-friends-loader.php' );
+	}
 }
+
 add_action( 'bp_include', 'bp_mutual_friends_init' );
 /* Put setup procedures to be run when the plugin is activated in the following function */
 function bp_mutual_friends_activate() {
 }
+
 register_activation_hook( __FILE__, 'bp_mutual_friends_activate' );
 /* On deacativation, clean up anything your component has added. */
 function bp_mutual_friends_deactivate() {
-    /* You might want to delete any options or tables that your component created. */
+	/* You might want to delete any options or tables that your component created. */
 }
+
 register_deactivation_hook( __FILE__, 'bp_mutual_friends_deactivate' );
