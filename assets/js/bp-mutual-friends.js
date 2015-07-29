@@ -22,6 +22,8 @@ var mutual_friends;
 
         fetch_mutual_friend: function( e ) {
 
+            e.preventDefault();
+
             $('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
 
             $element = $(this);

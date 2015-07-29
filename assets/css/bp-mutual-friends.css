@@ -9,21 +9,16 @@
     max-height: 500px;
 }
 
-
-.bmf-white-popup ul li {
-    border-bottom: 1px solid #eaeaea;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    display: block;
-    clear: both;
-}
-
-.bmf-white-popup ul li:last-child {
-    border-bottom: none;
-}
-
-.bmf-white-popup #pag-bottom {
+a.mutual-friends {
     display: inline-block;
+    color: #666;
+    font-size: small;
+    opacity: .8;
+    text-decoration: none;
+}
+
+a.mutual-friends:hover {
+ text-decoration: underline;
 }
 
 .bmf-spinner {

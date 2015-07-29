@@ -14,6 +14,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 		//$arg['per_page'] = apply_filters( 'bp_mutual_friends_per_page', 0 );
 	} else if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['user_id'] ) ) {
 
+		$arg['per_page'] = apply_filters( 'bp_mutual_friends_per_page', 0 );
 		$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
 	}
 
@@ -91,7 +92,7 @@ function bp_directory_mutual_friends_count() {
 	$mutual_friends_count = bp_mutual_friend_total_count( $members_template->member->ID );
 	?>
 	<div class="item-meta">
-		<a href="#" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
+		<a href="" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
 			<?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?>
 		</a>
 	</div>
