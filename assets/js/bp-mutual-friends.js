@@ -7,7 +7,7 @@ var mutual_friends;
         init: function() {
             $('a.mutual-friends').magnificPopup({
                 items: {
-                    src: $('<div class="white-popup"></div>'),
+                    src: $('<div class="bmf-white-popup"><div class="bmf-spinner"></div></div>'),
                     type: 'inline'
                 },
                 callbacks: {
@@ -15,7 +15,7 @@ var mutual_friends;
 
                     },
                     beforeClose: function() {
-                        $('div.white-popup').html( "" );
+                        $('div.bmf-white-popup').html( "<div class='bmf-spinner'></div>" );
                     }
                     // e.t.c.
                 },
@@ -32,10 +32,13 @@ var mutual_friends;
             var send_data = {
                 action: 'mutual_friends_dialog',
                 user_id: user_id
-            }
+            };
+
+
 
             $.get( ajaxurl, send_data, function( response ) {
-                $('div.white-popup').append( response );
+                $('div.bmf-white-popup').find("div.bmf-spinner").remove();
+                $('div.bmf-white-popup').append( response );
             });
         }
 
