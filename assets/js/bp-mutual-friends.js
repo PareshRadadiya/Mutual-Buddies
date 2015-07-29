@@ -5,29 +5,24 @@ var mutual_friends;
     mutual_friends = {
 
         init: function() {
+
             $('a.mutual-friends').magnificPopup({
                 items: {
-                    src: $('<div class="bmf-white-popup"><div class="bmf-spinner"></div></div>'),
+                    src: $('<div id="buddypress" class="bmf-white-popup"></div>'),
                     type: 'inline'
                 },
-                callbacks: {
-                    open: function() {
-
-                    },
-                    beforeClose: function() {
-                        $('div.bmf-white-popup').html( "<div class='bmf-spinner'></div>" );
-                    }
-                    // e.t.c.
-                },
+                showCloseBtn: true,
                 closeBtnInside:true
             });
 
-            $('a.mutual-friends').on( 'click', mutual_friends.fetch_mutual_friend );
+            $('a.mutual-friends').live( 'click', mutual_friends.fetch_mutual_friend );
+
+            $('div.bmf-white-popup').perfectScrollbar();
         },
 
         fetch_mutual_friend: function( e ) {
 
-            e.preventDefault();
+            $('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
 
             $element = $(this);
 
@@ -40,9 +35,7 @@ var mutual_friends;
             $.get( ajaxurl, send_data, function( response ) {
 
                 $('div.bmf-white-popup').find("div.bmf-spinner").remove();
-                $('div.bmf-white-popup').append( response );
-
-                mutual_friends.init()
+                $('div.bmf-white-popup').append( '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'+response );
             });
         }
 

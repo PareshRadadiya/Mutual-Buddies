@@ -9,10 +9,6 @@
     max-height: 500px;
 }
 
-.bmf-white-popup ul {
-    list-style-type: none;
-    padding-left: 0px;
-}
 
 .bmf-white-popup ul li {
     border-bottom: 1px solid #eaeaea;
@@ -26,28 +22,8 @@
     border-bottom: none;
 }
 
-.bmf-white-popup ul li div.item-avatar,
-.bmf-white-popup ul li div.item {
-    display: inline;
-    float: left;
-}
-
-.bmf-white-popup ul li div.item-avatar {
-    padding-top: 7px;
-}
-
-.bmf-white-popup ul li div.item {
-    padding-left: 10px;
-    padding-top: 0px;
-}
-
-.bmf-white-popup ul li div.action,
-.bmf-white-popup ul li div.action div {
-    display: inline;
-}
-
-.bmf-white-popup ul li div.action div a {
-    float: right;
+.bmf-white-popup #pag-bottom {
+    display: inline-block;
 }
 
 .bmf-spinner {
