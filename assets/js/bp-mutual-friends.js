@@ -1,42 +1,43 @@
 var mutual_friends;
-(function( $ ) {
+(function( jq ) {
 
     mutual_friends = {
 
         init: function() {
             mutual_friends.init_maginific_popup();
-            $('body').on( 'click', 'a.mutual-friends', mutual_friends.fetch_mutual_friend );
 
-            $( document ).ajaxComplete( mutual_friends.rebind_magnific_popup );
+            jq('body').on( 'click', 'a.mutual-friends', mutual_friends.fetch_mutual_friend );
+            jq( 'body' ).on('click', '.friendship-button a', mutual_friends.add_remove_friendship )
+            jq( document ).ajaxComplete( mutual_friends.rebind_magnific_popup );
         },
 
         fetch_mutual_friend: function( e ) {
 
-            $element = $(this);
+            jqelement = jq(this);
 
             e.preventDefault();
 
-            $('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
+            jq('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
 
-            var user_id = $element.data('user-id');
+            var user_id = jqelement.data('user-id');
             var send_data = {
                 action: 'mutual_friends_dialog',
                 user_id: user_id
             };
 
-            $.post( ajaxurl, send_data, function( response ) {
+            jq.post( ajaxurl, send_data, function( response ) {
 
-                $('div.bmf-white-popup').find("div.bmf-spinner").remove();
-                $('div.bmf-white-popup').append( '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'+response );
-                $('div.bmf-white-popup').perfectScrollbar();
+                jq('div.bmf-white-popup').find("div.bmf-spinner").remove();
+                jq('div.bmf-white-popup').append( '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'+response );
+                jq('div.bmf-white-popup').perfectScrollbar();
             });
         },
 
         init_maginific_popup: function () {
 
-            $('a.mutual-friends').magnificPopup({
+            jq('a.mutual-friends').magnificPopup({
                 items: {
-                    src: $('<div id="buddypress" class="bmf-white-popup"></div>'),
+                    src: jq('<div id="buddypress" class="bmf-white-popup"></div>'),
                     type: 'inline'
                 },
                 showCloseBtn: true,
@@ -51,20 +52,71 @@ var mutual_friends;
             if ( 'members_filter' == action ) {
                 var timer = setTimeout( function() {
 
-                    $element = $('#buddypress').find('a.mutual-friends');
+                    jqelement = jq('#buddypress').find('a.mutual-friends');
 
-                    if ( 'undefined' != typeof $element ) {
+                    if ( 'undefined' != typeof jqelement ) {
                         mutual_friends.init_maginific_popup();
                         clearInterval( timer );
                         return false;
                     }
                 }, 1000);
             }
+        },
+        
+        add_remove_friendship: function() {
+
+            jq(this).parent().addClass('loading');
+            var fid   = jq(this).attr('id'),
+                nonce   = jq(this).attr('href'),
+                thelink = jq(this);
+
+            fid = fid.split('-');
+            fid = fid[1];
+
+            nonce = nonce.split('?_wpnonce=');
+            nonce = nonce[1].split('&');
+            nonce = nonce[0];
+
+            jq.post( ajaxurl, {
+                    action: 'addremove_friend',
+                    'cookie': bp_get_cookies(),
+                    'fid': fid,
+                    '_wpnonce': nonce
+                },
+                function(response)
+                {
+                    var action  = thelink.attr('rel');
+                    parentdiv = thelink.parent();
+
+                    if ( action === 'add' ) {
+                        jq(parentdiv).fadeOut(200,
+                            function() {
+                                parentdiv.removeClass('add_friend');
+                                parentdiv.removeClass('loading');
+                                parentdiv.addClass('pending_friend');
+                                parentdiv.fadeIn(200).html(response);
+                            }
+                        );
+
+                    } else if ( action === 'remove' ) {
+                        jq(parentdiv).fadeOut(200,
+                            function() {
+                                parentdiv.removeClass('remove_friend');
+                                parentdiv.removeClass('loading');
+                                parentdiv.addClass('add');
+                                parentdiv.fadeIn(200).html(response);
+                            }
+                        );
+                    }
+                });
+            return false;
+
         }
 
     };
 
-    $( document).ready( function() { mutual_friends.init() });
+    
+    jq( document).ready( function() { mutual_friends.init() });
 })(jQuery);
 
 function parameter_value( url, name ) {
