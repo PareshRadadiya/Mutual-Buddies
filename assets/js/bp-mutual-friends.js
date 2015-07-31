@@ -1,4 +1,4 @@
-var mutual_friends;
+var mutual_friends, bmf_ajax_request = null;
 (function( jq ) {
 
     mutual_friends = {
@@ -47,6 +47,12 @@ var mutual_friends;
         },
 
         rebind_magnific_popup: function( event, xhr, settings ) {
+
+            if (  null != bmf_ajax_request ) {
+                bmf_ajax_request = null;
+                return false;
+            }
+
             var url = settings.data;
             var action = parameter_value( url, 'action' );
 
@@ -117,6 +123,7 @@ var mutual_friends;
         member_loop_next_page: function( e ) {
 
             jqelement = jq(this).parent();
+            jqparent_element = jqelement.parent();
 
             e.preventDefault();
 
@@ -126,7 +133,9 @@ var mutual_friends;
             if ( next_page > total_page ) {
                jq('ul.activity-list').hide();
             } else {
-                bp_ajax_request = jq.post( ajaxurl, {
+                jqparent_element.addClass('loading');
+
+                bmf_ajax_request = jq.post( ajaxurl, {
                         action: 'members_filter',
                         'cookie': bp_get_cookies(),
                         'object': 'members',
@@ -136,8 +145,8 @@ var mutual_friends;
                     },
                     function(response)
                     {
+                        jqparent_element.removeClass('loading');
                         var html = jq( response ).find('li');
-
                         jq('#members-list').append( html );
 
                     });

@@ -1,4 +1,5 @@
 <div id="bmf-members-dir-list" class="members dir-list">
+
 	<?php bp_get_template_part( 'members/members-loop' ); ?>
 	<?php global $members_template;
 	$total = ceil( (int) $members_template->total_member_count / 20 );
