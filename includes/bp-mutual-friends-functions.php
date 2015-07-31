@@ -103,7 +103,7 @@ function bp_directory_mutual_friends_count() {
 
 	?>
 	<div class="item-meta">
-		<a href="" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
+		<a href="" data-effect="mfp-zoom-in" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
 			<?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?>
 		</a>
 	</div>

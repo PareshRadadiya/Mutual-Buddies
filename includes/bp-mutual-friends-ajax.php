@@ -9,20 +9,25 @@
 /**
  * HTML markup for mutual friend dialog box
  */
-function bp_mutual_friends_dialog() {
+function bp_mutual_friends_dialog() { ?>
 
-	echo bp_buffer_template_part( 'members/members-loop' );
-	global $members_template;
-	$total = ceil( (int) $members_template->total_member_count / 20 );
-	if ( $total > 1 ) {
-		?>
-		<ul class="activity-list item-list">
-			<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-				<a class="bmf-load-more" href="#">Load More</a>
-			</li>
-		</ul>
+	<header><?php _e( 'Mutual Friends', 'bmf' ) ?></header>
+	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
+	<div class="popup-scroll">
 		<?php
-	}
+		echo bp_buffer_template_part( 'members/members-loop' );
+		global $members_template;
+		$total = ceil( (int) $members_template->total_member_count / 20 );
+		if ( $total > 1 ) {
+			?>
+			<ul class="activity-list item-list">
+				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
+					<a class="bmf-load-more" href="#">Load More</a>
+				</li>
+			</ul>
+		<?php } ?>
+	</div>
+	<?php
 	exit;
 }
 

@@ -32,6 +32,23 @@ a.mutual-friends {
   }
 }
 
+.mfp-title {
+  position:absolute;
+  /* other formatting */
+}
+
+.bmf-white-popup header{
+  border-bottom:1px dotted #ccc;
+  padding-bottom:.4em;
+  margin-bottom:.4em;
+}
+.popup-scroll{
+  /* Overflow Scroll */
+  overflow-y: scroll;
+  max-height: 300px;
+  padding:0 1em 0 0;
+}
+
 .bmf-spinner {
   width: 40px;
   height: 40px;

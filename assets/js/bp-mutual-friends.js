@@ -29,20 +29,28 @@ var mutual_friends, bmf_ajax_request = null;
             jq.post( ajaxurl, send_data, function( response ) {
 
                 jq('div.bmf-white-popup').find("div.bmf-spinner").remove();
-                jq('div.bmf-white-popup').append( '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'+response );
-                jq('div.bmf-white-popup').perfectScrollbar();
+                jq('div.bmf-white-popup').append( response );
             });
         },
 
         init_maginific_popup: function () {
 
             jq('a.mutual-friends').magnificPopup({
+                mainClass: 'mfp-with-fade',
+                removalDelay: 100, //delay removal by X to allow out-animation
+                callbacks: {
+                    beforeClose: function() {
+                        this.content.addClass('mfp-with-fade');
+                    },
+                    close: function() {
+                        this.content.removeClass('mfp-with-fade');
+                    }
+                },
+                midClick: true,
                 items: {
                     src: jq('<div id="buddypress" class="bmf-white-popup"></div>'),
                     type: 'inline'
-                },
-                showCloseBtn: true,
-                closeBtnInside:true
+                }
             });
         },
 
@@ -127,12 +135,12 @@ var mutual_friends, bmf_ajax_request = null;
 
             e.preventDefault();
 
-            var next_page = parseInt( jqelement.data('next-page-no') );
+            var new_next_page = next_page = parseInt( jqelement.data('next-page-no') );
             var total_page = parseInt( jqelement.data('total-page-count') );
 
-            if ( next_page > total_page ) {
-               jq('ul.activity-list').hide();
-            } else {
+            if ( next_page <= total_page ) {
+
+
                 jqparent_element.addClass('loading');
 
                 bmf_ajax_request = jq.post( ajaxurl, {
@@ -149,10 +157,15 @@ var mutual_friends, bmf_ajax_request = null;
                         var html = jq( response ).find('li');
                         jq('#members-list').append( html );
 
+                        new_next_page = next_page + 1;
+
+                        if ( new_next_page >= total_page ) {
+                            jq('ul.activity-list').hide();
+                        }
                     });
             }
 
-            jqelement.data( 'next-page-no', next_page + 1 );
+            jqelement.data( 'next-page-no', new_next_page );
         }
 
     };
