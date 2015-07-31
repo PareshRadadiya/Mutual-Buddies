@@ -10,8 +10,8 @@
 function bp_mutual_friends_user_filter( $arg ) {
 
 	if ( bp_is_mutual_friends_component() ) {
-		$arg['exclude'] = bp_uncommon_friends();
-		$arg['user_id'] = get_current_user_id();
+		//$arg['exclude'] = bp_uncommon_friends();
+		//$arg['user_id'] = get_current_user_id();
 		//$arg['per_page'] = apply_filters( 'bp_mutual_friends_per_page', 0 );
 	} else if ( defined( 'DOING_AJAX' )
 	            && isset( $_REQUEST['user_id'] )
@@ -20,16 +20,16 @@ function bp_mutual_friends_user_filter( $arg ) {
 
 
 		$arg['per_page'] = apply_filters( 'bp_mutual_friends_per_page', 0 );
-		$arg['exclude']  = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
+		//$arg['exclude']  = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
 
-		$arg['user_id'] = get_current_user_id();
+		//$arg['user_id'] = get_current_user_id();
 	}
 
 
 	return $arg;
 }
 
-add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter' );
+//add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter' );
 
 
 /**

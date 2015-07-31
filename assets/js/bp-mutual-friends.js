@@ -9,6 +9,7 @@ var mutual_friends;
             jq('body').on( 'click', 'a.mutual-friends', mutual_friends.fetch_mutual_friend );
             jq( 'body' ).on('click', '.friendship-button a', mutual_friends.add_remove_friendship )
             jq( document ).ajaxComplete( mutual_friends.rebind_magnific_popup );
+            jq( 'body' ).on( 'click', 'a.bmf-load-more', mutual_friends.member_loop_next_page );
         },
 
         fetch_mutual_friend: function( e ) {
@@ -111,12 +112,44 @@ var mutual_friends;
                 });
             return false;
 
+        },
+
+        member_loop_next_page: function( e ) {
+
+            jqelement = jq(this).parent();
+
+            e.preventDefault();
+
+            var next_page = parseInt( jqelement.data('next-page-no') );
+            var total_page = parseInt( jqelement.data('total-page-count') );
+
+            if ( next_page > total_page ) {
+               jq('ul.activity-list').hide();
+            } else {
+                bp_ajax_request = jq.post( ajaxurl, {
+                        action: 'members_filter',
+                        'cookie': bp_get_cookies(),
+                        'object': 'members',
+                        'search_terms': '',
+                        'page': 2,
+                        'template': ''
+                    },
+                    function(response)
+                    {
+                        var html = jq( response ).find('li');
+
+                        jq('#members-list').append( html );
+
+                    });
+            }
+
+            jqelement.data( 'next-page-no', next_page + 1 );
         }
 
     };
 
-    
     jq( document).ready( function() { mutual_friends.init() });
+
 })(jQuery);
 
 function parameter_value( url, name ) {

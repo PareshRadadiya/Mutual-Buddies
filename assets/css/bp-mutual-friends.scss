@@ -8,6 +8,10 @@
   //overflow-y: auto;
   overflow-x: hidden;
   max-height: 500px;
+
+  .pagination{
+    display: none !important;
+  }
 }
 a.mutual-friends {
   display: inline-block;
@@ -19,6 +23,12 @@ a.mutual-friends {
   &:hover {
     color: #666;
     text-decoration: underline;
+  }
+}
+
+#bmf-members-dir-list {
+  .pagination{
+    display: none !important;
   }
 }
 
