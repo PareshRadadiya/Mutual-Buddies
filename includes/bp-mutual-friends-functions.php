@@ -8,15 +8,15 @@
  */
 function bp_mutual_friends_user_filter( $arg ) {
 
-	if ( bp_is_mutual_friends_component() ) {
-		$arg['exclude'] = bp_uncommon_friends();
-		$arg['user_id'] = get_current_user_id();
-	} else if ( defined( 'DOING_AJAX' )
-	            && isset( $_REQUEST['user_id'] )
-	            && 'mutual_friends_dialog' === $_REQUEST['action']
+	if ( defined( 'DOING_AJAX' )
+	     && isset( $_REQUEST['user_id'] )
+	     && 'mutual_friends_dialog' === $_REQUEST['action']
 	) {
 
 		$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
+		$arg['user_id'] = get_current_user_id();
+	} else if ( bp_is_mutual_friends_component() ) {
+		$arg['exclude'] = bp_uncommon_friends();
 		$arg['user_id'] = get_current_user_id();
 	}
 
@@ -30,7 +30,9 @@ add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter
 /**
  * Get the unmutual friends of the current user
  * @since 1.0
+ *
  * @params int $friend_user_id Friends id
+ *
  * @return mixed|void
  */
 function bp_uncommon_friends( $friend_user_id = '' ) {
