@@ -23,7 +23,7 @@ class BP_Mutual_Friends_Component extends BP_Component {
 
 		parent::start(
 			'mutual-friends',
-			_x( 'Mutual Friend Connections', 'Friends screen page <title>', 'buddypress' ),
+			_x( 'Mutual Friend Connections', 'Mutual Friends screen page <title>', 'buddypress' ),
 			BP_MUTUAL_FRIENDS_PLUGIN_DIR
 		);
 
