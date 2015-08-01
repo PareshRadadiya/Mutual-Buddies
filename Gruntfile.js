@@ -1,4 +1,4 @@
-
+/* jshint node:true */
 module.exports = function( grunt ) {
 	'use strict';
 
@@ -8,6 +8,20 @@ module.exports = function( grunt ) {
 		dirs: {
 			css: 'assets/css',
 			js: 'assets/js'
+		},
+
+
+		// JavaScript linting with JSHint.
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc'
+			},
+			all: [
+				'Gruntfile.js',
+				'<%= dirs.js %>/*.js',
+				'!<%= dirs.js %>/*.min.js',
+				'!<%= dirs.js %>/jquery-magnific-popup*'
+			]
 		},
 
 		// Minify .js files.
@@ -68,9 +82,9 @@ module.exports = function( grunt ) {
 			js: {
 				files: [
 					'<%= dirs.js %>/*.js',
-					'!<%= dirs.js %>/*.min.js',
+					'!<%= dirs.js %>/*.min.js'
 				],
-				tasks: ['uglify']
+				tasks: ['jshint','uglify']
 			}
 		}
 
@@ -80,14 +94,15 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
+	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
 	// Register tasks
 	grunt.registerTask( 'default', [
-		'watch',
 		'uglify',
-		'css'
+		'css',
+		'jshint'
 	]);
 
 	grunt.registerTask( 'css', [

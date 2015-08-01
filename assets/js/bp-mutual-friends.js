@@ -1,3 +1,4 @@
+/*global ajaxurl:false, bp_get_cookies:false */
 var mutual_friends, bmf_ajax_request = null;
 (function( jq ) {
 
@@ -16,9 +17,10 @@ var mutual_friends, bmf_ajax_request = null;
 
             e.preventDefault();
 
-            jqelement = jq(this);
+            var jqelement = jq(this);
 
             jq('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
+
 
             var user_id = jqelement.data('user-id');
             var send_data = {
@@ -28,7 +30,7 @@ var mutual_friends, bmf_ajax_request = null;
 
             jq.post( ajaxurl, send_data, function( response ) {
 
-                jq('div.bmf-white-popup').find("div.bmf-spinner").remove();
+                jq('div.bmf-white-popup').find('div.bmf-spinner').remove();
                 jq('div.bmf-white-popup').append( response );
             });
         },
@@ -64,12 +66,12 @@ var mutual_friends, bmf_ajax_request = null;
             var url = settings.data;
             var action = parameter_value( url, 'action' );
 
-            if ( 'members_filter' == action ) {
+            if ( 'members_filter' === action ) {
                 var timer = setTimeout( function() {
 
-                    jqelement = jq('#buddypress').find('a.mutual-friends');
+                    var jqelement = jq('#buddypress').find('a.mutual-friends');
 
-                    if ( 'undefined' != typeof jqelement ) {
+                    if ( 'undefined' !== typeof jqelement ) {
                         mutual_friends.init_maginific_popup();
                         clearInterval( timer );
                         return false;
@@ -101,7 +103,7 @@ var mutual_friends, bmf_ajax_request = null;
                 function(response)
                 {
                     var action  = thelink.attr('rel');
-                    parentdiv = thelink.parent();
+                    var parentdiv = thelink.parent();
 
                     if ( action === 'add' ) {
                         jq(parentdiv).fadeOut(200,
@@ -130,16 +132,16 @@ var mutual_friends, bmf_ajax_request = null;
 
         member_loop_next_page: function( e ) {
 
-            jqelement = jq(this).parent();
-            jqparent_element = jqelement.parent();
+            var jqelement = jq(this).parent();
+            var jqparent_element = jqelement.parent();
 
             e.preventDefault();
 
-            var new_next_page = next_page = parseInt( jqelement.data('next-page-no') );
-            var total_page = parseInt( jqelement.data('total-page-count') );
+            var new_next_page = parseInt( jqelement.data('next-page-no'), 10 );
+            var next_page = new_next_page;
+            var total_page = parseInt( jqelement.data('total-page-count'), 10 );
 
             if ( next_page <= total_page ) {
-
 
                 jqparent_element.addClass('loading');
 
@@ -166,14 +168,14 @@ var mutual_friends, bmf_ajax_request = null;
             }
 
             jqelement.data( 'next-page-no', new_next_page );
-        },
+        }
     };
 
-    jq( document).ready( function() { mutual_friends.init() });
+    jq( document).ready( function() { mutual_friends.init(); });
 
 })(jQuery);
 
 function parameter_value( url, name ) {
-    var result = new RegExp( name + "=([^&]*)", "i").exec(url);
-    return result && unescape(result[1]) || "";
+    var result = new RegExp( name + '=([^&]*)', 'i').exec(url);
+    return result && result[1] || '';
 }
