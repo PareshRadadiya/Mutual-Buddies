@@ -65,10 +65,6 @@ class BP_Mutual_Friends_Component extends BP_Component {
 
 	/**
 	 * Set up bp-mutual-friends global settings.
-	 *
-	 * The BP_MUTUAL_FRIENDS constant is deprecated, and only used here for
-	 * backwards compatibility.
-	 *
 	 * @since BuddyPress (1.5.0)
 	 *
 	 * @see BP_Component::setup_globals() for description of parameters.
@@ -139,7 +135,7 @@ class BP_Mutual_Friends_Component extends BP_Component {
 }
 
 /**
- * Set up the bp-forums component.
+ * Set up the bp-mutual-friends component.
  */
 function bp_mutual_friends_load_core_component() {
 	global $bp;

@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Buddypress Mutual Friends
+ * Plugin Name: Mutual Buddies
  * Description: Display a list of mutual friends on a member’s profile and member list page similar to facebook
- * Author: Paresh
+ * Author: Paresh Radadiya
  * Author URI: https://about.me/paresh.radadiya
  * Version: 1.0
  * Text Domain: bmf
  * Domain Path: languages
- *  Requires at least: 4.1
+ * Requires at least: 4.1
  */
 
 // Define a constant that can be checked to see if the component is installed or not.

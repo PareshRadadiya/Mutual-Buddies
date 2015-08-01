@@ -22,7 +22,7 @@ function bp_mutual_friends_dialog() { ?>
 			?>
 			<ul class="activity-list item-list">
 				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-					<a class="bmf-load-more" href="#"><?php _e('Load More') ?></a>
+					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'bmf' ) ?></a>
 				</li>
 			</ul>
 		<?php } ?>

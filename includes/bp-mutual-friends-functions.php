@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Fetch an array of users mutual friends.
  *
@@ -25,7 +24,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 	return $arg;
 }
 
-//add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter' );
+add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter' );
 
 
 /**

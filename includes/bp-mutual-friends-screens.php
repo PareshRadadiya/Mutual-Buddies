@@ -1,21 +1,4 @@
 <?php
-
-/********************************************************************************
- * Screen Functions
- *
- * Screen functions are the controllers of BuddyPress. They will execute when their
- * specific URL is caught. They will first save or manipulate data using business
- * functions, then pass on the user to a template file.
- */
-
-/**
- * If your component uses a top-level directory, this function will catch the requests and load
- * the index page.
- *
- * @package BuddyPress_Template_Pack
- * @since 1.0
- */
-
 /**
  * If your component uses a top-level directory, this function will catch the requests and load
  * the index page.
@@ -32,7 +15,7 @@ function bp_mutual_friends_screen() {
 		 * @since BuddyPress (1.0.0)
 		 */
 
-		do_action( 'friends_screen_my_friends' );
+		do_action( 'mutual_friends_screen_my_friends' );
 
 		/**
 		 * Filters the template used to display the My Friends page.
