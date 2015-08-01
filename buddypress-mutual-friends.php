@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Mutual Buddies
+ * Plugin Name: Buddypress Mutual Buddies
  * Description: Display a list of mutual friends on a member’s profile and member list page similar to facebook
  * Author: Paresh Radadiya
  * Author URI: https://about.me/paresh.radadiya
