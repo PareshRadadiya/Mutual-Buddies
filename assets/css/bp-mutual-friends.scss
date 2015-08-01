@@ -1,3 +1,7 @@
+
+/*--------------------------------------------------------------
+ magnific popup
+--------------------------------------------------------------*/
 .bmf-white-popup {
   position: relative;
   background: #FFF;
@@ -5,7 +9,6 @@
   width: auto;
   max-width: 500px;
   margin: 20px auto;
-  //overflow-y: auto;
   overflow-x: hidden;
   max-height: 500px;
 
@@ -13,6 +16,30 @@
     display: none !important;
   }
 }
+
+
+#buddypress {
+  .mfp-close {
+    font-size: xx-large;
+    border: none;
+
+    &:hover {
+      background: #fff;
+      border: none;
+    }
+  }
+}
+
+.bmf-white-popup  {
+  ul#members-list {
+    border-top: none;
+
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
 a.mutual-friends {
   display: inline-block;
   color: #666;
@@ -20,15 +47,9 @@ a.mutual-friends {
   opacity: .8;
   text-decoration: none;
 
-  &:hover {
+&:hover {
     color: #666;
     text-decoration: underline;
-  }
-}
-
-#bmf-members-dir-list {
-  .pagination{
-    display: none !important;
   }
 }
 
@@ -44,7 +65,7 @@ a.mutual-friends {
 }
 .popup-scroll{
   /* Overflow Scroll */
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 300px;
   padding:0 1em 0 0;
 }

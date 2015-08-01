@@ -7,16 +7,16 @@ var mutual_friends, bmf_ajax_request = null;
             mutual_friends.init_maginific_popup();
 
             jq('body').on( 'click', 'a.mutual-friends', mutual_friends.fetch_mutual_friend );
-            jq( 'body' ).on('click', '.friendship-button a', mutual_friends.add_remove_friendship )
-            jq( document ).ajaxComplete( mutual_friends.rebind_magnific_popup );
+            jq( 'body' ).on('click', '.friendship-button a', mutual_friends.add_remove_friendship );
             jq( 'body' ).on( 'click', 'a.bmf-load-more', mutual_friends.member_loop_next_page );
+            jq( document ).ajaxComplete( mutual_friends.rebind_magnific_popup );
         },
 
         fetch_mutual_friend: function( e ) {
 
-            jqelement = jq(this);
-
             e.preventDefault();
+
+            jqelement = jq(this);
 
             jq('div.bmf-white-popup').html('<div class="bmf-spinner"></div>');
 
@@ -35,28 +35,28 @@ var mutual_friends, bmf_ajax_request = null;
 
         init_maginific_popup: function () {
 
-            jq('a.mutual-friends').magnificPopup({
-                mainClass: 'mfp-with-fade',
-                removalDelay: 100, //delay removal by X to allow out-animation
-                callbacks: {
-                    beforeClose: function() {
-                        this.content.addClass('mfp-with-fade');
+                jq('a.mutual-friends').magnificPopup({
+                    mainClass: 'mfp-with-fade',
+                    removalDelay: 100, //delay removal by X to allow out-animation
+                    callbacks: {
+                        beforeClose: function () {
+                            this.content.addClass('mfp-with-fade');
+                        },
+                        close: function () {
+                            this.content.removeClass('mfp-with-fade');
+                        }
                     },
-                    close: function() {
-                        this.content.removeClass('mfp-with-fade');
+                    midClick: true,
+                    items: {
+                        src: jq('<div id="buddypress" class="bmf-white-popup"></div>'),
+                        type: 'inline'
                     }
-                },
-                midClick: true,
-                items: {
-                    src: jq('<div id="buddypress" class="bmf-white-popup"></div>'),
-                    type: 'inline'
-                }
-            });
+                });
         },
 
         rebind_magnific_popup: function( event, xhr, settings ) {
 
-            if (  null != bmf_ajax_request ) {
+            if ( null != bmf_ajax_request ) {
                 bmf_ajax_request = null;
                 return false;
             }
@@ -166,8 +166,7 @@ var mutual_friends, bmf_ajax_request = null;
             }
 
             jqelement.data( 'next-page-no', new_next_page );
-        }
-
+        },
     };
 
     jq( document).ready( function() { mutual_friends.init() });
