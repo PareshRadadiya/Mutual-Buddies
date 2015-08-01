@@ -120,7 +120,7 @@ class BP_Mutual_Friends_Component extends BP_Component {
 			'position'            => 65,
 			'screen_function'     => 'bp_mutual_friends_screen',
 			'default_subnav_slug' => 'my-mutual-friends',
-			'item_css_id'     => 'members'
+			'item_css_id'         => 'members'
 		);
 
 		// Add the subnav items to the mutual-friends nav item

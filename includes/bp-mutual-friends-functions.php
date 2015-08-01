@@ -17,7 +17,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 	            && 'mutual_friends_dialog' === $_REQUEST['action']
 	) {
 
-		$arg['exclude']  = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
+		$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
 		$arg['user_id'] = get_current_user_id();
 	}
 
@@ -31,6 +31,7 @@ add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter
 /**
  * Get the unmutual friends of the current user
  * @since 1.0
+ * @params int $friend_user_id Friends id
  * @return mixed|void
  */
 function bp_uncommon_friends( $friend_user_id = '' ) {
@@ -60,7 +61,7 @@ function bp_uncommon_friends( $friend_user_id = '' ) {
 /**
  * Get the mutual friend count of a current user.
  *
- * @params int
+ * @params $friend_user_id int
  *
  * @return mixed|void
  */
@@ -99,7 +100,8 @@ function bp_directory_mutual_friends_count() {
 
 	?>
 	<div class="item-meta">
-		<a href="" data-effect="mfp-zoom-in" data-user-id="<?php echo $members_template->member->ID; ?>" class="mutual-friends">
+		<a href="" data-effect="mfp-zoom-in" data-user-id="<?php echo $members_template->member->ID; ?>"
+		   class="mutual-friends">
 			<?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?>
 		</a>
 	</div>
