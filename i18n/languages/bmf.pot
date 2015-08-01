@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Buddypress Mutual Friends 1.0 BP\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/buddypress-mutual-friends\n"
-"POT-Creation-Date: 2015-08-01 14:01:59+00:00\n"
+"POT-Creation-Date: 2015-08-01 14:12:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,6 +16,10 @@ msgstr ""
 
 #: includes/bp-mutual-friends-ajax.php:14
 msgid "Mutual Friends"
+msgstr ""
+
+#: includes/bp-mutual-friends-ajax.php:25
+msgid "Load More"
 msgstr ""
 
 #: includes/bp-mutual-friends-functions.php:105
