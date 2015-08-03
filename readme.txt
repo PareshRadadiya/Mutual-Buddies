@@ -1,4 +1,4 @@
-=== Buddypress Mutual Buddies ===
+=== Mutual Buddies ===
 Contributors: pareshradadiya-1
 Tags: buddypress, facebook, friends
 Requires at least: 4.0
@@ -6,7 +6,7 @@ Tested up to: 4.1
 Stable tag: 1.0
 License: GPLv3
 
-Display a list of mutual friends on a member’s profile and member list page similar to facebook
+Display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
 
 == Description ==
 Are you looking for mutual friend in buddypress? Buddypress Mutual Buddies common friends in social network.
@@ -27,7 +27,7 @@ Mutual friends are the people who are friends with both you and the person whose
 
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Buddypress Mutual Buddies, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type “Buddypress Mutual Buddies” and click Search Plugins. Once you’ve found our eCommerce plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
+In the search field type “Buddypress Mutual Buddies” and click Search Plugins. Once you’ve found our plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
 = Manual installation =
 

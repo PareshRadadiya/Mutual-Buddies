@@ -1,11 +1,11 @@
 # Copyright (C) 2015 Paresh Radadiya
-# This file is distributed under the same license as the Buddypress Mutual Buddies package.
+# This file is distributed under the same license as the Mutual Buddies package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Buddypress Mutual Buddies 1.0 BP\n"
+"Project-Id-Version: Mutual Buddies 1.0 BP\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/buddypress-mutual-friends\n"
-"POT-Creation-Date: 2015-08-01 21:22:18+00:00\n"
+"POT-Creation-Date: 2015-08-03 19:13:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,13 +33,13 @@ msgid "Mutual Friends <span class=\"%s\">%s</span>"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Buddypress Mutual Buddies"
+msgid "Mutual Buddies"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Display a list of mutual friends on a member’s profile and member list page "
-"similar to facebook"
+"Display a list of mutual friends on a buddypress member’s profile and "
+"member list page similar to facebook"
 msgstr ""
 
 #. Author of the plugin/theme
