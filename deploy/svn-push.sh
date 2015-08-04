@@ -117,6 +117,7 @@ rsync -avz --delete --delete-excluded \
 	--exclude '/.jshint*' \
 	--exclude '/.sass-cache' \
 	--exclude '/node_modules' \
+	--exclude '/deploy' \
 	--exclude '/assets' \
 	--exclude '/svn-url' \
 	$git_tmp_repo_dir/ $svn_tmp_repo_dir/trunk/
