@@ -7,7 +7,7 @@ Mutual buddies displays mutual friends of the logged in user & the user whose pr
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2.4  
-**Stable tag:** 1.0  
+**Stable tag:** 1.1  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
