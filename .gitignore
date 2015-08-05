@@ -16,5 +16,3 @@ node_modules
 *.sublime-project
 
 # Project Stuff
-deploy
-svn-url*
