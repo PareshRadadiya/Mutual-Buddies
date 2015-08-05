@@ -1,27 +1,22 @@
 === Mutual Buddies ===
-Contributors: pareshradadiya-1
-Tags: buddypress, facebook, friends
+Contributors: pareshradadiya
+Tags: buddypress, social, friends, facebook
 Requires at least: 4.0
-Tested up to: 4.1
+Tested up to: 4.2.4
 Stable tag: 1.0
 License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
+Mutual buddies displays mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
 == Description ==
-Are you looking for mutual friend in buddypress? Buddypress Mutual Buddies common friends in social network.
+Are you looking for buddypress mutual friend? Mutual Buddies display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
 
 This plugin includes a new component inside user profile page and list a mutual friends.  If you have buddypress friends enabled your users will have friends. Their friends also have friends and these friends again have friends.
 
 Mutual friends are the people who are friends with both you and the person whose profile you're viewing. For instance, if you're friends with Mike, and James is friends with Mike, then Mike will be shown as a mutual friend when you're viewing James's profile.
 
 == Installation ==
-
-= Minimum Requirements =
-
-* WordPressor 4.2 or greater
-* PHP version 5.2.4 or greater
-* MySQL version 5.0 or greater
 
 = Automatic installation =
 
@@ -33,11 +28,18 @@ In the search field type “Buddypress Mutual Buddies” and click Search Plugin
 
 The manual installation method involves downloading our eCommerce plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
+== Frequently Asked Questions ==
+
+= Can I use my existing WordPress theme? =
+
+Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
+
+
 == Screenshots ==
 
 1. Member page.
-2. Friend profile page.
-3. Mutual friends dialog.
+2. Mutual friends dialog.
+3. Friend profile page.
 
 == Changelog ==
 
