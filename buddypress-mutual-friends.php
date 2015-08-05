@@ -4,7 +4,7 @@
  * Description: Display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
  * Author: Paresh Radadiya
  * Author URI: https://about.me/paresh.radadiya
- * Version: 1.0
+ * Version: 1.1
  * Text Domain: bmf
  * Domain Path: languages
  * Requires at least: 4.1
