@@ -22,3 +22,4 @@ function bp_mutual_friends_add_js() {
 }
 
 add_action( 'bp_before_members_loop', 'bp_mutual_friends_add_js' );
+add_action( 'bp_before_member_friend_requests_content', 'bp_mutual_friends_add_js' );

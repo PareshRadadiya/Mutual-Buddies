@@ -37,6 +37,10 @@
     li:last-child {
       border-bottom: none;
     }
+
+    li {
+      overflow: hidden !important;
+    }
   }
 }
 

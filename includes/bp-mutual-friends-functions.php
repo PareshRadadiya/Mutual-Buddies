@@ -110,3 +110,4 @@ function bp_directory_mutual_friends_count() {
 }
 
 add_action( 'bp_directory_members_item', 'bp_directory_mutual_friends_count' );
+add_action( 'bp_friend_requests_item', 'bp_directory_mutual_friends_count' );
