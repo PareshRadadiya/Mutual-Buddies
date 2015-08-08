@@ -1,6 +1,6 @@
 === Mutual Buddies ===
 Contributors: pareshradadiya
-Tags: buddypress, social, friends, facebook
+Tags: buddypress, social, friends, facebook, mutual, common, friendship
 Requires at least: 4.0
 Tested up to: 4.2.4
 Stable tag: 1.2
@@ -41,10 +41,13 @@ Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
 2. Mutual Friends Dialog.
 3. Friends Page.
 4. Friends Request Page
+5. Mutual Friends Page
+
 == Changelog ==
 
 = 1.2 =
 * Mutual friends support for Friends > Request Page
+* Styling fixes inside popup
 
 = 1.1 =
 * SCSS files are removed from bundle
