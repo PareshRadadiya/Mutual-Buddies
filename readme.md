@@ -4,7 +4,7 @@
 Mutual buddies displays BuddyPress mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
 **Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya)  
-**Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook)  
+**Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual](https://wordpress.org/plugins/tags/mutual), [common](https://wordpress.org/plugins/tags/common), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2.4  
 **Stable tag:** 1.2  
@@ -42,6 +42,7 @@ Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
 
 ### 1.2 ###
 * Mutual friends support for Friends > Request Page
+* Styling fixes inside popup
 
 ### 1.1 ###
 * SCSS files are removed from bundle
