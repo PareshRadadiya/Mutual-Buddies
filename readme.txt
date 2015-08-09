@@ -10,9 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Mutual buddies displays BuddyPress mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
 == Description ==
-Are you looking for BuddyPress mutual friends? Mutual Buddies display a list of mutual friends on a BuddyPress member’s profile and member list page similar to facebook
 
-This plugin includes a new component inside user profile page and list a mutual friends.  If you have BuddyPress friends enabled your users will have friends. Their friends also have friends and these friends again have friends.
+Are you looking for BuddyPress mutual friends? Mutual Buddies display a list of mutual friends on a BuddyPress member’s profile and members list
+
+You can see which friends you have in common in your friends network. Like when you go to a friends profile you can see which persons your both friends with (common friends). Just like on Facebook. This plugin add a new component inside members's profile page and list all mutual friends.
 
 Mutual friends are the people who are friends with both you and the person whose profile you're viewing. For instance, if you're friends with Mike, and James is friends with Mike, then Mike will be shown as a mutual friend when you're viewing James's profile.
 
@@ -34,27 +35,31 @@ The manual installation method involves downloading our eCommerce plugin and upl
 
 Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
 
+= Where can I report bugs or contribute to the project? =
+
+Bugs can be reported either in support forum or preferably on the [Mutual-Buddies GitHub repository](https://github.com/PareshRadadiya/Mutual-Buddies).
+
 
 == Screenshots ==
 
-1. Member Page.
+1. Members Page.
 2. Mutual Friends Dialog.
 3. Friends Page.
 4. Friends Request Page
-5. Mutual Friends Page
+5. Go to a member's profile you can see which persons your both friends with (common friends)
 
 == Changelog ==
 
 = 1.3 =
-bp_directory_members_item and bp_friend_requests_item replaced with bp_member_last_active filter
-member loop squeeze members next to each other while masonry grid is used fix
+* Tweak - Replaced bp_directory_members_item and bp_friend_requests_item hooks with bp_member_last_active filter
+* Fix - Member loop squeeze members next to each other while masonry grid is used
 
 = 1.2 =
-* Mutual friends support for Friends > Request Page
-* Styling fixes inside popup
+* Feature - Mutual friends support for Friends > Request Page
+* Fix - Styling fixes inside popup
 
 = 1.1 =
-* SCSS files are removed from bundle
+* Tweak - SCSS files are removed from bundle
 
 = 1.0 =
 * Initial release
