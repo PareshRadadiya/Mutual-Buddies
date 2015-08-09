@@ -8,14 +8,25 @@
  */
 function bp_mutual_friends_user_filter( $arg ) {
 
-	if ( defined( 'DOING_AJAX' )
-	     && isset( $_REQUEST['user_id'] )
-	     && 'mutual_friends_dialog' === $_REQUEST['action']
-	) {
+	if ( defined( 'DOING_AJAX' ) && isset( $_REQUEST['user_id'] ) ) {
 
-		$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
-		$arg['user_id'] = get_current_user_id();
+		if ( 'bmf_mutual_friends_dialog' === $_REQUEST['action'] ) {
+
+			/**
+			 * Exclude all common friends
+			 */
+			$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
+			$arg['user_id'] = get_current_user_id();
+		} else if ( 'bmf_friends_dialog' === $_REQUEST['action'] ) {
+
+			/**
+			 * Show friends if mutual friends count is 0
+			 */
+			$arg['user_id'] = $_REQUEST['user_id'];
+		}
+
 	} else if ( bp_is_mutual_friends_component() ) {
+
 		$arg['exclude'] = bp_uncommon_friends();
 		$arg['user_id'] = get_current_user_id();
 	}
@@ -104,10 +115,22 @@ function bp_directory_mutual_friends_count( $last_activity, $r ) {
 		return;
 	}
 
-	$mutual_friends_link = '<a href="" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
+	if ( 0 < absint( $mutual_friends_count ) ) {
+
+		$mutual_friends_link = '<a href="" data-action="bmf_mutual_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
 			' . sprintf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'bmf' ), $mutual_friends_count ) . '
 		</a>';
+	} else {
+
+		$friends_count = friends_get_total_friend_count( $members_template->member->ID );
+
+		$mutual_friends_link = '<a href="" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
+		   class="mutual-friends">
+			' . sprintf( _n( '%s friend', '%s friends', $friends_count, 'bmf' ), $friends_count ) . '
+		</a>';
+	}
+
 
 	return $last_activity . $mutual_friends_link;
 }
@@ -124,9 +147,13 @@ add_filter( 'bp_member_last_active', 'bp_directory_mutual_friends_count', 10, 2 
  * @return string empty markup
  */
 function bp_hide_member_latest_update( $update_content ) {
-	if ( defined( 'DOING_AJAX' )
-	     && isset( $_REQUEST['user_id'] )
-	     && 'mutual_friends_dialog' === $_REQUEST['action']
+	if ( defined( 'DOING_AJAX' ) &&
+	     (
+		     ( isset( $_REQUEST['user_id'] )
+		       && ( 'bmf_mutual_friends_dialog' === $_REQUEST['action']
+		            || 'bmf_friends_dialog' === $_REQUEST['action'] ) )
+		     || ( isset( $_REQUEST['bmf_dialog'] ) )
+	     )
 	) {
 		$update_content = '';
 	}

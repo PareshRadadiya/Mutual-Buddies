@@ -24,7 +24,7 @@ var mutual_friends, bmf_ajax_request = null;
 
             var user_id = jqelement.data('user-id');
             var send_data = {
-                action: 'mutual_friends_dialog',
+                action: jqelement.data('action'),
                 user_id: user_id
             };
 
@@ -137,8 +137,8 @@ var mutual_friends, bmf_ajax_request = null;
 
             e.preventDefault();
 
-            var new_next_page = parseInt( jqelement.data('next-page-no'), 10 );
-            var next_page = new_next_page;
+            var next_page = parseInt( jqelement.data('next-page-no'), 10 );
+            var new_next_page = next_page + 1;
             var total_page = parseInt( jqelement.data('total-page-count'), 10 );
 
             if ( next_page <= total_page ) {
@@ -150,8 +150,9 @@ var mutual_friends, bmf_ajax_request = null;
                         'cookie': bp_get_cookies(),
                         'object': 'members',
                         'search_terms': '',
-                        'page': 2,
-                        'template': ''
+                        'page': next_page,
+                        'template': '',
+                        'bmf_dialog': true
                     },
                     function(response)
                     {
@@ -159,9 +160,7 @@ var mutual_friends, bmf_ajax_request = null;
                         var html = jq( response ).find('li');
                         jq('#members-list').append( html );
 
-                        new_next_page = next_page + 1;
-
-                        if ( new_next_page >= total_page ) {
+                        if ( new_next_page > total_page ) {
                             jq('ul.activity-list').hide();
                         }
                     });
