@@ -1,9 +1,9 @@
 === Mutual Buddies ===
-Contributors: pareshradadiya
+Contributors: pareshradadiya, sanketio
 Tags: buddypress, social, friends, facebook, mutual, common, friendship
 Requires at least: 4.0
 Tested up to: 4.2.4
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -44,6 +44,10 @@ Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
 5. Mutual Friends Page
 
 == Changelog ==
+
+= 1.3 =
+bp_directory_members_item and bp_friend_requests_item replaced with bp_member_last_active filter
+member loop squeeze members next to each other while masonry grid is used fix
 
 = 1.2 =
 * Mutual friends support for Friends > Request Page

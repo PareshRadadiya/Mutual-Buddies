@@ -82,11 +82,16 @@ function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
 }
 
 /**
- * Get the mutual friends count
- * @return int
- * @since 1.0
+ * Filters append the mutual friends counts html.
+ *
+ * @since 1.3
+ *
+ * @param string $last_activity Formatted time since last activity.
+ * @param array $r Array of parsed arguments for query.
+ *
+ * @return string $last_activity Formatted html
  */
-function bp_directory_mutual_friends_count() {
+function bp_directory_mutual_friends_count( $last_activity, $r ) {
 	global $members_template;
 
 	if ( ! is_user_logged_in() ) {
@@ -99,15 +104,34 @@ function bp_directory_mutual_friends_count() {
 		return;
 	}
 
-	?>
-	<div class="item-meta">
-		<a href="" data-effect="mfp-zoom-in" data-user-id="<?php echo $members_template->member->ID; ?>"
+	$mutual_friends_link = '<a href="" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
-			<?php printf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'buddypress' ), $mutual_friends_count ); ?>
-		</a>
-	</div>
-	<?php
+			' . sprintf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'bmf' ), $mutual_friends_count ) . '
+		</a>';
+
+	return $last_activity . $mutual_friends_link;
 }
 
-add_action( 'bp_directory_members_item', 'bp_directory_mutual_friends_count' );
-add_action( 'bp_friend_requests_item', 'bp_directory_mutual_friends_count' );
+add_filter( 'bp_member_last_active', 'bp_directory_mutual_friends_count', 10, 2 );
+
+/**
+ * Remove the last update content from mutual friends popup
+ *
+ * @since 1.3
+ *
+ * @param string $update_content Formatted latest update for current member.
+ *
+ * @return string empty markup
+ */
+function bp_hide_member_latest_update( $update_content ) {
+	if ( defined( 'DOING_AJAX' )
+	     && isset( $_REQUEST['user_id'] )
+	     && 'mutual_friends_dialog' === $_REQUEST['action']
+	) {
+		$update_content = '';
+	}
+
+	return $update_content;
+}
+
+add_filter( 'bp_get_member_latest_update', 'bp_hide_member_latest_update', 10, 1 );
