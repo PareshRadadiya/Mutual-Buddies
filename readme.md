@@ -3,8 +3,8 @@
 
 Mutual buddies displays BuddyPress mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
-**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanketio](https://profiles.wordpress.org/sanketio)  
-**Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual](https://wordpress.org/plugins/tags/mutual), [common](https://wordpress.org/plugins/tags/common), [friendship](https://wordpress.org/plugins/tags/friendship)  
+**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanketparmar](https://profiles.wordpress.org/sanketparmar)  
+**Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2.4  
 **Stable tag:** 1.3  
@@ -42,6 +42,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 1.4 ###
+* Tweak - Show friends instead of mutual fiends when mutual fiends count is 0
+* Fix - Load more inside mutual friends dialog always load a 2nd pabe
 
 ### 1.3 ###
 * Tweak - Replaced bp_directory_members_item and bp_friend_requests_item hooks with bp_member_last_active filter
