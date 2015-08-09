@@ -1,5 +1,5 @@
 === Mutual Buddies ===
-Contributors: pareshradadiya, sanketio
+Contributors: pareshradadiya, sanketparmar
 Tags: buddypress, social, friends, facebook, mutual, common, friendship
 Requires at least: 4.0
 Tested up to: 4.2.4
