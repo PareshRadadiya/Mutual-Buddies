@@ -3,11 +3,11 @@
 
 Mutual buddies displays BuddyPress mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
-**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya)  
+**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanketio](https://profiles.wordpress.org/sanketio)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual](https://wordpress.org/plugins/tags/mutual), [common](https://wordpress.org/plugins/tags/common), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2.4  
-**Stable tag:** 1.2  
+**Stable tag:** 1.3  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
@@ -39,6 +39,10 @@ Yes! Mutual Buddies works out-of-the-box with nearly every WordPress theme.
 
 
 ## Changelog ##
+
+### 1.3 ###
+bp_directory_members_item and bp_friend_requests_item replaced with bp_member_last_active filter
+member loop squeeze members next to each other while masonry grid is used fix
 
 ### 1.2 ###
 * Mutual friends support for Friends > Request Page
