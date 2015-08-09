@@ -3,7 +3,7 @@ Contributors: pareshradadiya, sanketparmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
 Tested up to: 4.2.4
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,8 +52,7 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 = 1.4 =
 * Tweak - Show friends instead of mutual fiends when mutual fiends count is 0
-* Fix - Load more inside mutual friends dialog always load a 2nd pabe
-
+* Fix - Load more inside mutual friends dialog always loading a 2nd page
 
 = 1.3 =
 * Tweak - Replaced bp_directory_members_item and bp_friend_requests_item hooks with bp_member_last_active filter

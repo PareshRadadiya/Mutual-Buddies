@@ -4,7 +4,7 @@
  * Description: Display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
  * Author: Paresh Radadiya
  * Author URI: https://about.me/paresh.radadiya
- * Version: 1.3
+ * Version: 1.4
  * Text Domain: bmf
  * Domain Path: languages
  * Requires at least: 4.1
@@ -14,7 +14,7 @@
 define( 'BP_MUTUAL_FRIENDS_IS_INSTALLED', 1 );
 // Define a constant that will hold the current version number of the component
 // This can be useful if you need to run update scripts or do compatibility checks in the future
-define( 'BP_MUTUAL_FRIENDS_VERSION', '1.3' );
+define( 'BP_MUTUAL_FRIENDS_VERSION', '1.4' );
 // Define a constant that we can use to construct file paths throughout the component
 define( 'BP_MUTUAL_FRIENDS_PLUGIN_DIR', dirname( __FILE__ ) );
 // Define a constant that we can use to construct file paths throughout the component
