@@ -1,10 +1,10 @@
 <?php
 /**
- * bp_mutual_friends_add_js()
+ * bmf_mutual_friends_add_js()
  *
  * This function will enqueue the components javascript file
  */
-function bp_mutual_friends_add_js() {
+function bmf_mutual_friends_add_js() {
 
 	if ( ! defined( 'DOING_AJAX' ) ) {
 
@@ -21,5 +21,5 @@ function bp_mutual_friends_add_js() {
 	}
 }
 
-add_action( 'bp_before_members_loop', 'bp_mutual_friends_add_js' );
-add_action( 'bp_before_member_friend_requests_content', 'bp_mutual_friends_add_js' );
+add_action( 'bp_before_members_loop', 'bmf_mutual_friends_add_js' );
+add_action( 'bp_before_member_friend_requests_content', 'bmf_mutual_friends_add_js' );

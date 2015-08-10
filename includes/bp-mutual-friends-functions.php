@@ -6,7 +6,7 @@
  *
  * @return mixed
  */
-function bp_mutual_friends_user_filter( $arg ) {
+function bmf_mutual_friends_user_filter( $arg ) {
 
 	if ( defined( 'DOING_AJAX' ) && isset( $_REQUEST['user_id'] ) ) {
 
@@ -15,7 +15,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 			/**
 			 * Exclude all common friends
 			 */
-			$arg['exclude'] = bp_uncommon_friends( intval( $_REQUEST['user_id'] ) );
+			$arg['exclude'] = bmf_uncommon_friends( intval( $_REQUEST['user_id'] ) );
 			$arg['user_id'] = get_current_user_id();
 		} else if ( 'bmf_friends_dialog' === $_REQUEST['action'] ) {
 
@@ -27,7 +27,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 
 	} else if ( bp_is_mutual_friends_component() ) {
 
-		$arg['exclude'] = bp_uncommon_friends();
+		$arg['exclude'] = bmf_uncommon_friends();
 		$arg['user_id'] = get_current_user_id();
 	}
 
@@ -35,7 +35,7 @@ function bp_mutual_friends_user_filter( $arg ) {
 	return $arg;
 }
 
-add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter' );
+add_filter( 'bp_after_core_get_users_parse_args', 'bmf_mutual_friends_user_filter' );
 
 
 /**
@@ -46,7 +46,7 @@ add_filter( 'bp_after_core_get_users_parse_args', 'bp_mutual_friends_user_filter
  *
  * @return mixed|void
  */
-function bp_uncommon_friends( $friend_user_id = '' ) {
+function bmf_uncommon_friends( $friend_user_id = '' ) {
 
 	$result = array();
 
@@ -67,17 +67,17 @@ function bp_uncommon_friends( $friend_user_id = '' ) {
 
 	$result = array_merge( $current_user_friends_requested, $displayed_user_friends_requested, $result );
 
-	return apply_filters( 'bp_uncommon_friends', $result );
+	return apply_filters( 'bmf_uncommon_friends', $result );
 }
 
 /**
- * Get the mutual friend count of a current user.
+ * Get the mutual friend count for the current user.
  *
  * @params $friend_user_id int
  *
  * @return mixed|void
  */
-function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
+function bmf_mutual_friend_total_count( $friend_user_id = 0 ) {
 
 	$current_user_friends = friends_get_friend_user_ids( get_current_user_id() );
 
@@ -89,11 +89,11 @@ function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
 
 	$result = count( array_intersect( $current_user_friends, $displayed_user_friends ) );
 
-	return apply_filters( 'bp_mutual_friend_total_count', $result );
+	return apply_filters( 'bmf_mutual_friend_total_count', $result );
 }
 
 /**
- * Filters append the mutual friends counts html.
+ * Output mutual friends counts for the current member in the loop.
  *
  * @since 1.3
  *
@@ -102,20 +102,23 @@ function bp_mutual_friend_total_count( $friend_user_id = 0 ) {
  *
  * @return string $last_activity Formatted html
  */
-function bp_directory_mutual_friends_count( $last_activity, $r ) {
+function bmf_directory_mutual_friends_count( $last_activity = '', $r = '' ) {
 	global $members_template;
 
 	if ( ! is_user_logged_in() ) {
 		return;
 	}
 
-	$mutual_friends_count = bp_mutual_friend_total_count( $members_template->member->ID );
+	$mutual_friends_count = bmf_mutual_friend_total_count( $members_template->member->ID );
 
 	if ( get_current_user_id() == $members_template->member->ID ) {
 		return;
 	}
 
-	if ( 0 < absint( $mutual_friends_count ) ) {
+	$mutual_friends_link       = '';
+	$show_mutual_friends_count = apply_filters( 'bmf_show_mutual_friends_count', true );
+
+	if ( $show_mutual_friends_count && 0 < absint( $mutual_friends_count ) ) {
 
 		$mutual_friends_link = '<a href="" data-action="bmf_mutual_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
@@ -123,22 +126,26 @@ function bp_directory_mutual_friends_count( $last_activity, $r ) {
 		</a>';
 	} else {
 
-		$friends_count = friends_get_total_friend_count( $members_template->member->ID );
+		$friends_count      = friends_get_total_friend_count( $members_template->member->ID );
+		$show_friends_count = apply_filters( 'bmf_show_friends_count', true );
 
-		$mutual_friends_link = '<a href="" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
+		if ( 0 < $friends_count && $show_friends_count ) {
+
+			$mutual_friends_link = '<a href="" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
 			' . sprintf( _n( '%s friend', '%s friends', $friends_count, 'bmf' ), $friends_count ) . '
 		</a>';
+		}
+
 	}
 
-
-	return $last_activity . $mutual_friends_link;
+	return $last_activity . apply_filters( 'bmf_directory_mutual_friends_count', $mutual_friends_link );
 }
 
-add_filter( 'bp_member_last_active', 'bp_directory_mutual_friends_count', 10, 2 );
+add_filter( 'bp_member_last_active', 'bmf_directory_mutual_friends_count', 10, 2 );
 
 /**
- * Remove the last update content from mutual friends popup
+ * Remove the last update content from mutual friends popup for the current member in the loop
  *
  * @since 1.3
  *
@@ -146,7 +153,7 @@ add_filter( 'bp_member_last_active', 'bp_directory_mutual_friends_count', 10, 2 
  *
  * @return string empty markup
  */
-function bp_hide_member_latest_update( $update_content ) {
+function bmf_hide_member_latest_update( $update_content ) {
 	if ( defined( 'DOING_AJAX' ) &&
 	     (
 		     ( isset( $_REQUEST['user_id'] )
@@ -161,4 +168,4 @@ function bp_hide_member_latest_update( $update_content ) {
 	return $update_content;
 }
 
-add_filter( 'bp_get_member_latest_update', 'bp_hide_member_latest_update', 10, 1 );
+add_filter( 'bp_get_member_latest_update', 'bmf_hide_member_latest_update', 10, 1 );
