@@ -102,7 +102,26 @@ function bmf_mutual_friend_total_count( $friend_user_id = 0 ) {
  *
  * @return string $last_activity Formatted html
  */
-function bmf_directory_mutual_friends_count( $last_activity = '', $r = '' ) {
+function bmf_total_mutual_friend_count( $last_activity, $r ) {
+
+	$mutual_friends_link = bmf_get_total_mutual_friend_count();
+
+	return $last_activity . apply_filters( 'bmf_total_mutual_friend_count', $mutual_friends_link );
+}
+
+add_filter( 'bp_member_last_active', 'bmf_total_mutual_friend_count', 10, 2 );
+
+/**
+ * Return mutual friends counts for the current member in the loop.
+ *
+ * @since 1.5
+ *
+ * @param array $classes Array of custom classes
+ *
+ * @return string Row class of the member
+ */
+function bmf_get_total_mutual_friend_count() {
+
 	global $members_template;
 
 	if ( ! is_user_logged_in() ) {
@@ -139,10 +158,8 @@ function bmf_directory_mutual_friends_count( $last_activity = '', $r = '' ) {
 
 	}
 
-	return $last_activity . apply_filters( 'bmf_directory_mutual_friends_count', $mutual_friends_link );
+	return apply_filters( 'bmf_get_total_mutual_friend_count', $mutual_friends_link );
 }
-
-add_filter( 'bp_member_last_active', 'bmf_directory_mutual_friends_count', 10, 2 );
 
 /**
  * Remove the last update content from mutual friends popup for the current member in the loop
