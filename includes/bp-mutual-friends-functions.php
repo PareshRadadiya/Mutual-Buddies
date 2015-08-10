@@ -104,6 +104,12 @@ function bmf_mutual_friend_total_count( $friend_user_id = 0 ) {
  */
 function bmf_total_mutual_friend_count( $last_activity, $r ) {
 
+	$bmf_show_total_mutual_friend_count = apply_filters( 'bmf_show_total_mutual_friend_count', true );
+
+	if ( ! $bmf_show_total_mutual_friend_count ) {
+		return $last_activity;
+	}
+
 	$mutual_friends_link = bmf_get_total_mutual_friend_count();
 
 	return $last_activity . apply_filters( 'bmf_total_mutual_friend_count', $mutual_friends_link );
@@ -115,6 +121,7 @@ add_filter( 'bp_member_last_active', 'bmf_total_mutual_friend_count', 10, 2 );
  * Return mutual friends counts for the current member in the loop.
  *
  * @since 1.5
+ *
  *
  * @param array $classes Array of custom classes
  *
