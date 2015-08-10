@@ -142,7 +142,7 @@ function bmf_get_total_mutual_friend_count() {
 	}
 
 	$mutual_friends_link       = '';
-	$show_mutual_friends_count = apply_filters( 'bmf_show_mutual_friends_count', true );
+	$show_mutual_friends_count = apply_filters( 'bmf_show_mutual_friend_count', true );
 
 	if ( $show_mutual_friends_count && 0 < absint( $mutual_friends_count ) ) {
 
@@ -153,7 +153,7 @@ function bmf_get_total_mutual_friend_count() {
 	} else {
 
 		$friends_count      = friends_get_total_friend_count( $members_template->member->ID );
-		$show_friends_count = apply_filters( 'bmf_show_friends_count', true );
+		$show_friends_count = apply_filters( 'bmf_show_friend_count', true );
 
 		if ( 0 < $friends_count && $show_friends_count ) {
 
