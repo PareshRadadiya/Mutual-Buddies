@@ -128,36 +128,40 @@ add_filter( 'bp_member_last_active', 'bmf_total_mutual_friend_count', 10, 2 );
  * @return string Row class of the member
  */
 function bmf_get_total_mutual_friend_count() {
-
 	global $members_template;
 
 	if ( ! is_user_logged_in() ) {
 		return;
 	}
 
-	$mutual_friends_count = bmf_mutual_friend_total_count( $members_template->member->ID );
-
 	if ( get_current_user_id() == $members_template->member->ID ) {
 		return;
 	}
 
+	$user_domain               = bp_core_get_user_domain( $members_template->member->ID );
 	$mutual_friends_link       = '';
+	$mutual_friends_count      = bmf_mutual_friend_total_count( $members_template->member->ID );
 	$show_mutual_friends_count = apply_filters( 'bmf_show_mutual_friend_count', true );
 
 	if ( $show_mutual_friends_count && 0 < absint( $mutual_friends_count ) ) {
 
-		$mutual_friends_link = '<a href="" data-action="bmf_mutual_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
+		$mutual_friends_link = trailingslashit( $user_domain . bmf_get_mutual_friends_slug() );
+
+		$mutual_friends_link = '<a href="' . $mutual_friends_link . '" data-action="bmf_mutual_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
 			' . sprintf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'bmf' ), $mutual_friends_count ) . '
 		</a>';
 	} else {
 
-		$friends_count      = friends_get_total_friend_count( $members_template->member->ID );
+		$friends_count = $members_template->member->total_friend_count;
+
 		$show_friends_count = apply_filters( 'bmf_show_friend_count', true );
 
 		if ( 0 < $friends_count && $show_friends_count ) {
 
-			$mutual_friends_link = '<a href="" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
+			$friends_link = trailingslashit( $user_domain . bp_get_friends_slug() );
+
+			$mutual_friends_link = '<a href="' . $friends_link . '" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
 			' . sprintf( _n( '%s friend', '%s friends', $friends_count, 'bmf' ), $friends_count ) . '
 		</a>';
@@ -193,3 +197,22 @@ function bmf_hide_member_latest_update( $update_content ) {
 }
 
 add_filter( 'bp_get_member_latest_update', 'bmf_hide_member_latest_update', 10, 1 );
+
+/**
+ * Return the mutual friends component slug.
+ *
+ * @since 1.6
+ */
+function bmf_get_mutual_friends_slug() {
+	global $bp;
+
+	/**
+	 * Filters the mutual friends component slug.
+	 *
+	 * @since 1.6
+	 *
+	 * @param string $value Mutual Friends component slug.
+	 */
+
+	return apply_filters( 'bmf_get_mutual_friends_slug', $bp->mutual_friends->slug );
+}
