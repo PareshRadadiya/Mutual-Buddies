@@ -7,7 +7,7 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.2.4  
-**Stable tag:** 1.5  
+**Stable tag:** 1.6  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
@@ -42,6 +42,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 1.6 ###
+* Fix - Link in the members list won't work in case of js error or slow net connectivity
+* Fix - Load plugin text domain.
 
 ### 1.5 ###
 * Tweak - Added Filters: bmf_show_total_mutual_friend_count, bmf_show_mutual_friend_count, bmf_show_friend_count
