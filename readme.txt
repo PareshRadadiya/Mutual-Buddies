@@ -3,7 +3,7 @@ Contributors: pareshradadiya, sanketparmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
 Tested up to: 4.2.4
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,6 +49,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 5. Go to a member's profile you can see which persons your both friends with (common friends)
 
 == Changelog ==
+
+= 1.6 =
+* Fix - Link in the members list won't work in case of js error or slow net connectivity
+* Fix - Load plugin text domain.
 
 = 1.5 =
 * Tweak - Added Filters: bmf_show_total_mutual_friend_count, bmf_show_mutual_friend_count, bmf_show_friend_count
