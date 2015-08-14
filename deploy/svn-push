@@ -124,6 +124,7 @@ rsync -avz --delete --delete-excluded \
 	--exclude '/.editorconfig' \
 	--exclude '/package.json' \
 	--exclude '/deploy' \
+	--exclude '/.tx' \
 	--exclude '/svn-url' \
 	--exclude 'phpunit.xml*' \
 	--exclude '/assets/css/*.scss' \

@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[mutual-buddies.mutual-buddies]
+file_filter = i18n/languages/bmf-<lang>.po
+source_file = i18n/languages/bmf.pot
+source_lang = en_US
+type = PO
