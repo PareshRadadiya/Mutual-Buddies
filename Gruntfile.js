@@ -7,7 +7,8 @@ module.exports = function( grunt ) {
 		// Setting folder templates.
 		dirs: {
 			css: 'assets/css',
-			js: 'assets/js'
+			js: 'assets/js',
+			lang: 'i18n/languages'
 		},
 
 
@@ -145,7 +146,33 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Watch changes for assets.
+        exec: {
+            txpull: { // Pull Transifex translation - grunt exec:txpull
+                cmd: 'tx pull -a -f --minimum-perc=1' // Change the percentage with --minimum-perc=yourvalue
+            },
+            txpush_s: { // Push pot to Transifex - grunt exec:txpush_s
+                cmd: 'tx push -s'
+            },
+        },
+
+        potomo: {
+            dist: {
+                options: {
+                    poDel: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dirs.lang %>',
+                    src: ['*.po'],
+                    dest: '<%= dirs.lang %>',
+                    ext: '.mo',
+                    nonull: true
+                }]
+            }
+        },
+
+
+        // Watch changes for assets.
 		watch: {
 			css: {
 				files: ['<%= dirs.css %>/*.scss'],
@@ -166,7 +193,6 @@ module.exports = function( grunt ) {
 	});
 
 	// Load NPM tasks to be used here
-	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
@@ -174,6 +200,11 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
+	grunt.loadNpmTasks( 'grunt-exec' );
+	grunt.loadNpmTasks( 'grunt-potomo' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
+
+
 
 	// Register tasks
 	grunt.registerTask( 'default', [
@@ -181,6 +212,12 @@ module.exports = function( grunt ) {
 		'css',
 		'jshint'
 	]);
+
+	// Makepot and push it on Transifex task(s).
+	grunt.registerTask( 'tx-push', [ 'makepot', 'exec:txpush_s' ] );
+
+    // Pull from Transifex and create .mo task(s).
+	grunt.registerTask( 'tx-pull', [ 'exec:txpull', 'potomo' ] );
 
 	grunt.registerTask( 'css', [
 		'sass',
