@@ -17,6 +17,15 @@ You can see which friends you have in common in your friends network. Like when 
 
 Mutual friends are the people who are friends with both you and the person whose profile you're viewing. For instance, if you're friends with Mike, and James is friends with Mike, then Mike will be shown as a mutual friend when you're viewing James's profile.
 
+**Languages**
+
+Mutual Buddies has been translated into the following languages:
+
+1. English
+2. French
+
+Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
+
 == Installation ==
 
 = Automatic installation =
