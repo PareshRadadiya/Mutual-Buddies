@@ -6,7 +6,7 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanketparmar](https://profiles.wordpress.org/sanketparmar)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
-**Tested up to:** 4.2.4  
+**Tested up to:** 4.3  
 **Stable tag:** 1.6  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
@@ -17,6 +17,15 @@ Are you looking for BuddyPress mutual friends? Mutual Buddies display a list of 
 You can see which friends you have in common in your friends network. Like when you go to a friends profile you can see which persons your both friends with (common friends). Just like on Facebook. This plugin add a new component inside members's profile page and list all mutual friends.
 
 Mutual friends are the people who are friends with both you and the person whose profile you're viewing. For instance, if you're friends with Mike, and James is friends with Mike, then Mike will be shown as a mutual friend when you're viewing James's profile.
+
+**Languages**
+
+Mutual Buddies has been translated into the following languages:
+
+1. English
+2. French
+
+Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
 
 ## Installation ##
 
