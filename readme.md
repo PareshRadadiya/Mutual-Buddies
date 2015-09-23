@@ -24,7 +24,7 @@ Mutual Buddies has been translated into the following languages:
 
 1. English
 2. French
-3. Dutch
+3. Deutsch
 
 Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
 
