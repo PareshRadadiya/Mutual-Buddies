@@ -3,10 +3,10 @@
 
 Mutual buddies displays BuddyPress mutual friends of the logged in user & the user whose profile the user is looking at on the Profile page.
 
-**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanketparmar](https://profiles.wordpress.org/sanketparmar)  
+**Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanket.parmar](https://profiles.wordpress.org/sanket.parmar)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
-**Tested up to:** 4.3  
+**Tested up to:** 4.3.1  
 **Stable tag:** 1.6  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
@@ -24,6 +24,7 @@ Mutual Buddies has been translated into the following languages:
 
 1. English
 2. French
+3. Dutch
 
 Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
 
