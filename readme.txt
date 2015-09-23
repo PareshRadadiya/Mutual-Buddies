@@ -1,8 +1,8 @@
 === Mutual Buddies ===
-Contributors: pareshradadiya, sanketparmar
+Contributors: pareshradadiya, sanket.parmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
-Tested up to: 4.3
+Tested up to: 4.3.1
 Stable tag: 1.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -23,6 +23,7 @@ Mutual Buddies has been translated into the following languages:
 
 1. English
 2. French
+3. Dutch
 
 Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
 
