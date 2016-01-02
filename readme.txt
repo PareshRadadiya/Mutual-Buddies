@@ -2,8 +2,8 @@
 Contributors: pareshradadiya, sanket.parmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.6
+Tested up to: 4.4
+Stable tag: 1.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 5. Go to a member's profile you can see which persons your both friends with (common friends)
 
 == Changelog ==
+
+= 1.7 =
+* Tweak - Changed text domain from "bmf" to "mutual-buddies"
+* Tweak - Allow the templates directory to be modified via plugins or themes
 
 = 1.6 =
 * Fix - Link in the members list won't work in case of js error or slow net connectivity
