@@ -6,8 +6,8 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanket.parmar](https://profiles.wordpress.org/sanket.parmar)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
-**Tested up to:** 4.3.1  
-**Stable tag:** 1.6  
+**Tested up to:** 4.4  
+**Stable tag:** 1.7  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
@@ -52,6 +52,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 1.7 ###
+* Tweak - Changed text domain from "bmf" to "mutual-buddies"
+* Tweak - Allow the templates directory to be modified via plugins or themes
 
 ### 1.6 ###
 * Fix - Link in the members list won't work in case of js error or slow net connectivity
