@@ -11,7 +11,7 @@
  */
 function bmf_mutual_friends_dialog() { ?>
 
-	<header><?php _e( 'Mutual Friends', 'bmf' ) ?></header>
+	<header><?php _e( 'Mutual Friends', 'mutual-buddies' ) ?></header>
 	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
 	<div class="popup-scroll">
 		<?php
@@ -22,7 +22,7 @@ function bmf_mutual_friends_dialog() { ?>
 			?>
 			<ul class="activity-list item-list">
 				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'bmf' ) ?></a>
+					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'mutual-buddies' ) ?></a>
 				</li>
 			</ul>
 		<?php } ?>
@@ -38,7 +38,7 @@ add_action( 'wp_ajax_bmf_mutual_friends_dialog', 'bmf_mutual_friends_dialog' );
  */
 function bmf_friends_dialog() { ?>
 
-	<header><?php _e( 'Friends', 'bmf' ) ?></header>
+	<header><?php _e( 'Friends', 'mutual-buddies' ) ?></header>
 	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
 	<div class="popup-scroll">
 		<?php
@@ -49,7 +49,7 @@ function bmf_friends_dialog() { ?>
 			?>
 			<ul class="activity-list item-list">
 				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'bmf' ) ?></a>
+					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'mutual-buddies' ) ?></a>
 				</li>
 			</ul>
 		<?php } ?>

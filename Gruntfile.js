@@ -77,7 +77,7 @@ module.exports = function( grunt ) {
 					domainPath: '/i18n/languages/',    // Where to save the POT file.
 					exclude: ['deploy/.*'],
 					mainFile: 'buddypress-mutual-friends.php',    // Main project file.
-					potFilename: 'bmf.pot',    // Name of the POT file.
+					potFilename: 'mutual-buddies.pot',    // Name of the POT file.
 					potHeaders: {
 						poedit: true,                 // Includes common Poedit headers.
 						'x-poedit-keywordslist': true // Include a list of all possible gettext functions.
@@ -113,7 +113,7 @@ module.exports = function( grunt ) {
 		// Check textdomain errors.
 		checktextdomain: {
 			options:{
-				text_domain: 'bmf',
+				text_domain: 'mutual-buddies',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',

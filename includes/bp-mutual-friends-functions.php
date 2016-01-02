@@ -149,7 +149,7 @@ function bmf_get_total_mutual_friend_count() {
 
 		$mutual_friends_link = '<a href="' . $mutual_friends_link . '" data-action="bmf_mutual_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
-			' . sprintf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'bmf' ), $mutual_friends_count ) . '
+			' . sprintf( _n( '%s mutual friend', '%s mutual friends', $mutual_friends_count, 'mutual-buddies' ), $mutual_friends_count ) . '
 		</a>';
 	} else {
 
@@ -163,7 +163,7 @@ function bmf_get_total_mutual_friend_count() {
 
 			$mutual_friends_link = '<a href="' . $friends_link . '" data-action="bmf_friends_dialog" data-effect="mfp-zoom-in" data-user-id="' . $members_template->member->ID . '"
 		   class="mutual-friends">
-			' . sprintf( _n( '%s friend', '%s friends', $friends_count, 'bmf' ), $friends_count ) . '
+			' . sprintf( _n( '%s friend', '%s friends', $friends_count, 'mutual-buddies' ), $friends_count ) . '
 		</a>';
 		}
 
