@@ -38,7 +38,12 @@ function bp_my_mutual_friends_screen() {
 	add_action( 'bp_template_content', 'bp_mutual_friends_template_content' );
 	bp_core_load_template( apply_filters( 'bp_my_mutual_friends_screen', 'members/single/friends' ) );
 }
-
+/**
+ * Screen content callback to display a user's "Mutual Friends" page.
+ *
+ * @since 1.0
+ */
 function bp_mutual_friends_template_content() {
-	include_once( BP_MUTUAL_FRIENDS_PLUGIN_DIR . '/templates/mutual-friends/mutual-friends-loop.php' );
+
+	bmf_get_template_part( 'friends', 'loop' );
 }

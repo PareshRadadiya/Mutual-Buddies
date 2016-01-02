@@ -16,7 +16,7 @@ define( 'BP_MUTUAL_FRIENDS_IS_INSTALLED', 1 );
 // This can be useful if you need to run update scripts or do compatibility checks in the future
 define( 'BP_MUTUAL_FRIENDS_VERSION', '1.6' );
 // Define a constant that we can use to construct file paths throughout the component
-define( 'BP_MUTUAL_FRIENDS_PLUGIN_DIR', dirname( __FILE__ ) );
+define( 'BP_MUTUAL_FRIENDS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 // Define a constant that we can use to construct file paths throughout the component
 define( 'BP_MUTUAL_FRIENDS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 

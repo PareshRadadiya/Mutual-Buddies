@@ -15,7 +15,7 @@ function bmf_mutual_friends_dialog() { ?>
 	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
 	<div class="popup-scroll">
 		<?php
-		echo bp_buffer_template_part( 'members/members-loop' );
+		bmf_get_template_part( 'friends', 'loop-popup' );
 		global $members_template;
 		$total = ceil( (int) $members_template->total_member_count / 20 );
 		if ( $total > 1 ) {
