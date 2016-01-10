@@ -21,6 +21,7 @@ add_action( 'wp_ajax_bmf_mutual_friends_dialog', 'bmf_mutual_friends_dialog' );
  */
 function bmf_friends_dialog() {
 	bmf_get_template_part( 'friends', 'loop-dialog' );
+	exit;
 }
 
 add_action( 'wp_ajax_bmf_friends_dialog', 'bmf_friends_dialog' );
