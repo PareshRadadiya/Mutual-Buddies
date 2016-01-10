@@ -21,7 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<header><?php _e( 'Friends', 'mutual-buddies' ) ?></header>
+<?php
+
+if ( 'bmf_mutual_friends_dialog' === $_REQUEST['action']  ) {
+	$dialog_heading = __( 'Mutual Friends', 'mutual-buddies' );
+} else if ( 'bmf_friends_dialog' === $_REQUEST['action'] ) {
+	$dialog_heading = __( 'Friends', 'mutual-buddies' );
+}
+
+?>
+<header><?php echo $dialog_heading ?></header>
 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
 <div class="popup-scroll">
 	<?php
