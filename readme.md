@@ -7,7 +7,7 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
 **Tested up to:** 4.4  
-**Stable tag:** 1.7  
+**Stable tag:** 1.8  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
@@ -23,10 +23,13 @@ Mutual friends are the people who are friends with both you and the person whose
 Mutual Buddies has been translated into the following languages:
 
 1. English
-2. French
-3. Deutsch
+2. French by [fxbenard](https://profiles.wordpress.org/fxbenard/)
+3. Deutsch by [per4mance](https://profiles.wordpress.org/per4mance)
 
 Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
+### More Information ###
+Visit the [Mutual Buddies website](http://pareshradadiya.github.io/Mutual-Buddies/) for documentation, and information on project.
+
 
 ## Installation ##
 
@@ -52,6 +55,10 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 1.8 ###
+* Tweak - Changed template dir name from "bmf_templates" to "mutual-buddies"
+* New - Added a few new action hooks
 
 ### 1.7 ###
 * Tweak - Changed text domain from "bmf" to "mutual-buddies"
