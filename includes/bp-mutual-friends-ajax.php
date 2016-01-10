@@ -9,25 +9,8 @@
 /**
  * HTML markup for mutual friend dialog box
  */
-function bmf_mutual_friends_dialog() { ?>
-
-	<header><?php _e( 'Mutual Friends', 'mutual-buddies' ) ?></header>
-	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
-	<div class="popup-scroll">
-		<?php
-		bmf_get_template_part( 'friends', 'loop-popup' );
-		global $members_template;
-		$total = ceil( (int) $members_template->total_member_count / 20 );
-		if ( $total > 1 ) {
-			?>
-			<ul class="activity-list item-list">
-				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'mutual-buddies' ) ?></a>
-				</li>
-			</ul>
-		<?php } ?>
-	</div>
-	<?php
+function bmf_mutual_friends_dialog() {
+	bmf_get_template_part( 'friends', 'loop-dialog' );
 	exit;
 }
 
@@ -36,26 +19,8 @@ add_action( 'wp_ajax_bmf_mutual_friends_dialog', 'bmf_mutual_friends_dialog' );
 /**
  * HTML markup for friend dialog box
  */
-function bmf_friends_dialog() { ?>
-
-	<header><?php _e( 'Friends', 'mutual-buddies' ) ?></header>
-	<button title="Close (Esc)" type="button" class="mfp-close">×</button>
-	<div class="popup-scroll">
-		<?php
-		echo bp_buffer_template_part( 'members/members-loop' );
-		global $members_template;
-		$total = ceil( (int) $members_template->total_member_count / 20 );
-		if ( $total > 1 ) {
-			?>
-			<ul class="activity-list item-list">
-				<li class="load-more" data-next-page-no="2" data-total-page-count="<?php echo $total ?>">
-					<a class="bmf-load-more" href="#"><?php _e( 'Load More', 'mutual-buddies' ) ?></a>
-				</li>
-			</ul>
-		<?php } ?>
-	</div>
-	<?php
-	exit;
+function bmf_friends_dialog() {
+	bmf_get_template_part( 'friends', 'loop-dialog' );
 }
 
 add_action( 'wp_ajax_bmf_friends_dialog', 'bmf_friends_dialog' );

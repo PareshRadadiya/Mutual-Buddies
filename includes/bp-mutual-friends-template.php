@@ -157,5 +157,5 @@ function bmf_get_theme_template_paths() {
  * @return string
  */
 function bmf_get_theme_template_dir_name() {
-	return trailingslashit( apply_filters( 'bmf_templates_dir', 'bmf_templates' ) );
+	return trailingslashit( apply_filters( 'bmf_templates_dir', 'mutual-buddies' ) );
 }
