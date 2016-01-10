@@ -112,7 +112,7 @@ function bmf_member_loop_show_total_count( $last_activity, $r ) {
 
 	$mutual_friends_link = bmf_get_total_mutual_friend_count();
 
-	return $last_activity . apply_filters( 'bmf_total_mutual_friend_count', $mutual_friends_link );
+	return $last_activity . apply_filters( 'bmf_member_loop_total_count', $mutual_friends_link );
 }
 
 add_filter( 'bp_member_last_active', 'bmf_member_loop_show_total_count', 10, 2 );
