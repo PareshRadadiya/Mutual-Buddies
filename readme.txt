@@ -3,7 +3,7 @@ Contributors: pareshradadiya, sanket.parmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 1.7
+Stable tag: 1.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,10 +22,14 @@ Mutual friends are the people who are friends with both you and the person whose
 Mutual Buddies has been translated into the following languages:
 
 1. English
-2. French
-3. Deutsch
+2. French by [fxbenard](https://profiles.wordpress.org/fxbenard/)
+3. Deutsch by [per4mance](https://profiles.wordpress.org/per4mance)
 
 Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
+
+= More Information =
+
+Visit the [Mutual Buddies website](http://pareshradadiya.github.io/Mutual-Buddies/) for documentation, and information on project.
 
 == Installation ==
 
@@ -59,6 +63,11 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 5. Go to a member's profile you can see which persons your both friends with (common friends)
 
 == Changelog ==
+
+
+= 1.8 =
+* Tweak - Changed template dir name from "bmf_templates" to "mutual-buddies"
+* New - Added a few new action hooks
 
 = 1.7 =
 * Tweak - Changed text domain from "bmf" to "mutual-buddies"
