@@ -3,7 +3,7 @@ Contributors: pareshradadiya, sanket.parmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
 Tested up to: 4.5.2
-Stable tag: 1.8
+Stable tag: 2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
