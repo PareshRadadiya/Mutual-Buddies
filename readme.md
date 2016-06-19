@@ -6,7 +6,7 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanket.parmar](https://profiles.wordpress.org/sanket.parmar)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
-**Tested up to:** 4.4  
+**Tested up to:** 4.5.2  
 **Stable tag:** 1.8  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
@@ -55,6 +55,9 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 1.8.1 ###
+* Fix - KELO theme the pop-up is completely white after it loads.
 
 ### 1.8 ###
 * Tweak - Changed template dir name from "bmf_templates" to "mutual-buddies"
