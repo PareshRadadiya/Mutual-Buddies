@@ -10,8 +10,6 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Stable tag:** 2.0  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) 
-
 ## Description ##
 
 Are you looking for BuddyPress mutual friends? Mutual Buddies display a list of mutual friends on a BuddyPress member’s profile and members list
