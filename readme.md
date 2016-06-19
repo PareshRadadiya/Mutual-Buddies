@@ -56,7 +56,7 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 ## Changelog ##
 
-### 1.8.1 ###
+### 1.9 ###
 * Fix - KELO theme the pop-up is completely white after it loads.
 
 ### 1.8 ###
