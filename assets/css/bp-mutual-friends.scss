@@ -16,19 +16,6 @@
   }
 }
 
-
-#buddypress {
-  .mfp-close {
-    font-size: xx-large;
-    border: none;
-
-    &:hover {
-      background: #fff;
-      border: none;
-    }
-  }
-}
-
 .bmf-white-popup  {
   ul#members-list {
     border-top: none;
@@ -43,6 +30,19 @@
     }
   }
 }
+
+#buddypress {
+  .mfp-close {
+    font-size: xx-large;
+    border: none;
+
+    &:hover {
+      background: #fff;
+      border: none;
+    }
+  }
+}
+
 
 a.mutual-friends {
   display: block;
@@ -83,6 +83,15 @@ a.mutual-friends {
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
   animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
+
+/* ------- KLEO Theme: Mutual Friend The pop-up is completely white after it loads fix --------- */
+.bmf-white-popup ul#members-list li .animated.animate-when-almost-visible {
+  opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------------
+    Loading animation
+   -------------------------------------------------------------------------------- */
 
 @-webkit-keyframes sk-rotateplane {
   0% {
