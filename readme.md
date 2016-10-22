@@ -6,8 +6,8 @@ Mutual buddies displays BuddyPress mutual friends of the logged in user & the us
 **Contributors:** [pareshradadiya](https://profiles.wordpress.org/pareshradadiya), [sanket.parmar](https://profiles.wordpress.org/sanket.parmar)  
 **Tags:** [buddypress](https://wordpress.org/plugins/tags/buddypress), [social](https://wordpress.org/plugins/tags/social), [friends](https://wordpress.org/plugins/tags/friends), [facebook](https://wordpress.org/plugins/tags/facebook), [mutual friends](https://wordpress.org/plugins/tags/mutual friends), [common friends](https://wordpress.org/plugins/tags/common friends), [friendship](https://wordpress.org/plugins/tags/friendship)  
 **Requires at least:** 4.0  
-**Tested up to:** 4.5.2  
-**Stable tag:** 2.0  
+**Tested up to:** 4.6.1  
+**Stable tag:** 2.1  
 **License:** [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)  
 
 ## Description ##
@@ -25,8 +25,8 @@ Mutual Buddies has been translated into the following languages:
 1. English
 2. French by [fxbenard](https://profiles.wordpress.org/fxbenard/)
 3. Deutsch by [per4mance](https://profiles.wordpress.org/per4mance)
-
-Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://www.transifex.com/wp-translations/mutual-buddies/).
+4. Russian by [Airat Halitov](https://profiles.wordpress.org/airathalitov)
+5. Italian by Sebastiano Pistore
 ### More Information ###
 Visit the [Mutual Buddies website](http://pareshradadiya.github.io/Mutual-Buddies/) for documentation, and information on project.
 
@@ -55,6 +55,13 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 
 
 ## Changelog ##
+
+### 2.1 ###
+* New: - Translation file for Italian and Russian
+* New: - Added .mo files for the language
+* Tweak - BuddyPress 2.7 compatibility fix
+* Tweak - Removed action(Request/Cancel/Add Friendship) from popup
+* Tweak - Removed member's last activity from popup
 
 ### 2.0 ###
 * Fix - KELO theme the pop-up is completely white after it loads.
