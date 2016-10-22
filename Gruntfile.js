@@ -43,22 +43,6 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Compile all .scss files.
-		sass: {
-			compile: {
-				options: {
-					loadPath: require( 'node-bourbon' ).includePaths
-				},
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.css %>/',
-					src: ['*.scss'],
-					dest: '<%= dirs.css %>/',
-					ext: '.css'
-				}]
-			}
-		},
-
 		// Minify all .css files.
 		cssmin: {
 			minify: {
@@ -66,7 +50,7 @@ module.exports = function( grunt ) {
 				cwd: '<%= dirs.css %>/',
 				src: ['*.css'],
 				dest: '<%= dirs.css %>/',
-				ext: '.css'
+				ext: '.min.css'
 			}
 		},
 
@@ -220,7 +204,6 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'tx-pull', [ 'exec:txpull', 'potomo' ] );
 
 	grunt.registerTask( 'css', [
-		'sass',
 		'cssmin'
 	]);
 
