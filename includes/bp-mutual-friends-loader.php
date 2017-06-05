@@ -95,6 +95,9 @@ class BP_Mutual_Friends_Component extends BP_Component {
 	 */
 	public function setup_nav( $main_nav = array(), $sub_nav = array() ) {
 
+		//No Mutual Friends tab for the logged-out users
+		if ( ! is_user_logged_in() ) return;
+
 		if ( bp_displayed_user_id() === 0 || bp_displayed_user_id() === get_current_user_id() ) {
 			return;
 		}
