@@ -199,6 +199,21 @@ function bmf_hide_member_latest_update( $update_content ) {
 add_filter( 'bp_get_member_latest_update', 'bmf_hide_member_latest_update', 10, 1 );
 
 /**
+ * Set a flag that a tabs reorder has taken place inside of the "BuddyPress Reorder Tabs".
+ *
+ * @param $url
+ * @return string
+ */
+function bmf_reorder_tabs_url_add_flag( $url ) {
+    if( $url ) {
+        $url = esc_url(add_query_arg( 'bmf_reorder', true, $url ));
+    }
+    return $url;
+}
+
+add_filter( 'bp_r_t_my_profile_url', 'bmf_reorder_tabs_url_add_flag' );
+
+/**
  * Return the mutual friends component slug.
  *
  * @since 1.6
