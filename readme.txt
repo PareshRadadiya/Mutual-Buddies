@@ -3,7 +3,7 @@ Contributors: pareshradadiya, sanket.parmar
 Tags: buddypress, social, friends, facebook, mutual friends, common friends, friendship
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 2.1
+Stable tag: 2.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -63,6 +63,11 @@ Bugs can be reported either in support forum or preferably on the [Mutual-Buddie
 5. Go to a member's profile you can see which persons your both friends with (common friends)
 
 == Changelog ==
+
+
+= 2.1.1 =
+* Fix - Mutual Friends tabs showing for the non logged in users
+* Fix - Added compatibility with the BuddyPress Reorders Tabs
 
 = 2.1 =
 * New: - Translation file for Italian and Russian

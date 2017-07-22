@@ -1,14 +1,14 @@
-# Copyright (C) 2016 Paresh Radadiya
+# Copyright (C) 2017 Paresh Radadiya
 # This file is distributed under the same license as the Mutual Buddies package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mutual Buddies 2.0\n"
+"Project-Id-Version: Mutual Buddies 2.1.1\n"
 "Report-Msgid-Bugs-To: https://github.com/PareshRadadiya/Mutual-Buddies\n"
-"POT-Creation-Date: 2016-10-22 06:59:16+00:00\n"
+"POT-Creation-Date: 2017-07-22 04:40:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: WP-Translations (http://wp-translations.org/)\n"
 "Language-Team: WP-Translations <wpt@wp-translations.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -36,7 +36,7 @@ msgid_plural "%s friends"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/bp-mutual-friends-loader.php:114
+#: includes/bp-mutual-friends-loader.php:117
 msgid "Mutual Friends <span class=\"%s\">%s</span>"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgctxt "Mutual Friends screen page <title>"
 msgid "Mutual Friend Connections"
 msgstr ""
 
-#: includes/bp-mutual-friends-loader.php:124
+#: includes/bp-mutual-friends-loader.php:127
 msgctxt "Friends screen sub nav"
 msgid "Mutual Friends"
 msgstr ""

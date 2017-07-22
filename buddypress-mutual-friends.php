@@ -4,7 +4,7 @@
  * Description: Display a list of mutual friends on a buddypress member’s profile and member list page similar to facebook
  * Author: Paresh Radadiya
  * Author URI: https://about.me/paresh.radadiya
- * Version: 2.1
+ * Version: 2.1.1
  * Text Domain: mutual-buddies
  * Domain Path: /i18n/languages/
  * Requires at least: 4.0
@@ -34,18 +34,6 @@ function bp_mutual_friends_init() {
 }
 
 add_action( 'bp_include', 'bp_mutual_friends_init' );
-/* Put setup procedures to be run when the plugin is activated in the following function */
-function bp_mutual_friends_activate() {
-}
-
-register_activation_hook( __FILE__, 'bp_mutual_friends_activate' );
-/* On deacativation, clean up anything your component has added. */
-function bp_mutual_friends_deactivate() {
-	/* You might want to delete any options or tables that your component created. */
-}
-
-register_deactivation_hook( __FILE__, 'bp_mutual_friends_deactivate' );
-
 
 /**
  * Loads the plugin language files

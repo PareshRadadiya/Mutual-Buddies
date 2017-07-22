@@ -188,8 +188,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-potomo' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
-
-
 	// Register tasks
 	grunt.registerTask( 'default', [
 		'uglify',
