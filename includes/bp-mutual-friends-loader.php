@@ -103,11 +103,12 @@ class BP_Mutual_Friends_Component extends BP_Component {
 		}
 
 		// Determine user to use
-		if ( bp_displayed_user_domain() ) {
-			$user_domain = bp_displayed_user_domain();
+		if ( !bp_displayed_user_domain() ) {
+			return;
 		}
 
-		$mutual_friends_link = trailingslashit( $user_domain . BP_MUTUAL_FRIENDS_SLUG );
+        $user_domain            = bp_displayed_user_domain();
+		$mutual_friends_link    = trailingslashit( $user_domain . BP_MUTUAL_FRIENDS_SLUG );
 
 		// Add 'Friends' to the main navigation
 		// Add 'Friends' to the main navigation
